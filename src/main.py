@@ -9,5 +9,5 @@ if __name__ == '__main__':
     
     # Создаем экземпляр класса BotHandlers и передаем бота
     handlers = BotHandlers(bot)  # Передаем объект TeleBot
-    
+    print('is working...')
     bot.polling(none_stop=True)
