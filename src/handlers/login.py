@@ -3,13 +3,14 @@
 from requests import status_codes
 from telebot import TeleBot
 import requests
+from telebot.types import Message
 from config import DOMAIN
 from handlers.welcome import get_buttons
 
 # Формируем URL для API
 API_URL = f'http://{DOMAIN}/api/jwt/create/'
 
-def login_handler(bot: TeleBot, message):
+def login_handler(bot: TeleBot, message: Message):
     bot.send_message(message.chat.id, "Введите ваш username или почту:")
     bot.register_next_step_handler(message, process_username, bot)
 
