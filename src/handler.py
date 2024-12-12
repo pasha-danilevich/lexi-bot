@@ -14,6 +14,10 @@ def register_handlers(bot: TeleBot):
     @bot.callback_query_handler(func=lambda call: call.data == 'register')
     def register_command(call):
         registration.registration_handler(bot, call.message)
+    
+    @bot.callback_query_handler(func=lambda call: call.data == 'confirm')
+    def confirmation_handler(call):
+        registration.handle_confirmation(bot, call)
 
     @bot.callback_query_handler(func=lambda call: call.data == 'login')
     def login_command(call):
