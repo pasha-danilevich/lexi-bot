@@ -2,12 +2,16 @@
 
 from config import TG_TOKEN
 import telebot
-from handler import BotHandlers
+from handler import register_handlers
+
+def main():
+    bot = telebot.TeleBot(TG_TOKEN)
+
+    # Регистрация обработчиков команд
+    register_handlers(bot)
+
+    print('Бот запущен и работает...')
+    bot.polling(none_stop=True)
 
 if __name__ == '__main__':
-    bot = telebot.TeleBot(TG_TOKEN)
-    
-    # Создаем экземпляр класса BotHandlers и передаем бота
-    handlers = BotHandlers(bot)  # Передаем объект TeleBot
-    print('is working...')
-    bot.polling(none_stop=True)
+    main()
