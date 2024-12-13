@@ -25,4 +25,4 @@ def register_handlers(bot: TeleBot):
 
     @bot.message_handler(func=lambda message: True)
     def echo_all(message: Message):
-        bot.reply_to(message, f'{message.text}? Не знаю такой команды')
+        bot.reply_to(message, f'"{message.text}"? Не знаю такой команды.')
