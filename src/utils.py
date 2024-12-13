@@ -11,3 +11,11 @@ def format_message(text: str, format_type: str) -> str:
     }
     
     return switcher.get(format_type, text)  # Возвращает текст без изменений, если формат не найден
+
+
+def escape_markdown_v2(text):
+    """ Экранирует специальные символы для MarkdownV2. """
+    escape_chars = r'_ * [ ] ( ) ~ ` > # + - = | { } . !'.split()
+    for char in escape_chars:
+        text = text.replace(char, f'\\{char}')
+    return text

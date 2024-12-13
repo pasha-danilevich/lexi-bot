@@ -5,7 +5,7 @@ import requests
 from config import DOMAIN
 from handlers.login import login_handler
 from user import User
-from utils import format_message
+from utils import escape_markdown_v2, format_message
 
 API_URL = f'http://{DOMAIN}/api/auth/users/'
 
@@ -56,13 +56,17 @@ def confirm_password(message: Message, bot: TeleBot):
     buttons = get_confirm_buttons()
     
     # Формируем текст для подтверждения
-    text = f'Вы ввели следующие данные:\nEmail: {current_user.email}\nUsername: {current_user.username}\nPassword: {format_message(current_user.password, "spoiler")}'
+    text1 = f'Вы ввели следующие данные: \nEmail: {current_user.email} \nUsername: {current_user.username} '
+    text2 = f'\nPassword: {format_message(escape_markdown_v2(current_user.password), "spoiler")}'
     
+    escaped_text = escape_markdown_v2(text1) + text2
+    print(escaped_text)
     # Отправляем сообщение с данными и кнопками
     bot.send_message(
         message.chat.id,
-        text,
-        reply_markup=buttons
+        text=escaped_text,
+        reply_markup=buttons,
+        parse_mode='MarkdownV2'
     )
 
 def get_confirm_buttons():
@@ -87,7 +91,7 @@ def handle_confirmation(bot: TeleBot, call: CallbackQuery):
         "password": current_user.password,
         "re_password": current_user.password  # Используем тот же пароль для повторного ввода
     }
-    
+    bot.send_message(call.message.chat.id, "Думаю...")
     # Выполняем POST-запрос к API
     response = requests.post(API_URL, json=payload)
 
