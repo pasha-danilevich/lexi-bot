@@ -1,17 +1,38 @@
 # src/main.py
 
-from config import TG_TOKEN
-import telebot
-from handler import register_handlers
+import asyncio
+import logging
 
-def main():
-    bot = telebot.TeleBot(TG_TOKEN)
+from aiogram import Bot, Dispatcher
+from aiogram.client.default import DefaultBotProperties
+from aiogram.enums.parse_mode import ParseMode
+from aiogram.fsm.storage.memory import MemoryStorage
 
-    # Регистрация обработчиков команд
-    register_handlers(bot)
+import config
+from database import Database
+from router import main_router
 
-    print('Бот запущен и работает...')
-    bot.polling(none_stop=True)
+db = Database()
 
-if __name__ == '__main__':
-    main()
+async def main():
+    bot = Bot(
+        token=config.TG_TOKEN, 
+        default=DefaultBotProperties(parse_mode=ParseMode.HTML)
+    )
+    dp = Dispatcher(storage=MemoryStorage())
+    dp.include_router(main_router)
+    
+    
+    await bot.delete_webhook(drop_pending_updates=True)
+    await dp.start_polling(bot, allowed_updates=dp.resolve_used_update_types())
+
+
+if __name__ == "__main__":
+    # logging.basicConfig(level=logging.INFO)
+    print('Бот запущен!')
+    try:
+        asyncio.run(main())
+    except KeyboardInterrupt:
+        print('Бот отключен.')
+    
+    db.close()

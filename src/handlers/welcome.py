@@ -1,24 +1,16 @@
-# src/handlers/welcome.py
+from aiogram import Router
+from aiogram.filters import Command
+from aiogram.fsm.context import FSMContext
+from aiogram.types import Message
 
-from telebot import TeleBot
-from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton
+router = Router()
 
+@router.message(Command("view_token"))
+async def view_token_handler(message: Message, state: FSMContext):
+    data = await state.get_data()
+    token = data.get('access_token')
 
-def send_welcome(bot: TeleBot, message):
-    welcome_message = get_welcome_message()
-    buttons = get_buttons()
-    bot.send_message(message.chat.id, welcome_message, reply_markup=buttons)
-    
-def get_welcome_message():
-    welcome_text = "Добро пожаловать в lexi бот! Бот для удобного изучения английского."
-    
-    return welcome_text
-
-def get_buttons():
-    # Создание клавиатуры
-    keyboard = InlineKeyboardMarkup(row_width=2)
-    register_button = InlineKeyboardButton("Регистрация", callback_data='register')
-    login_button = InlineKeyboardButton("Вход", callback_data='login')
-    keyboard.add(register_button, login_button)
-    
-    return keyboard
+    if token:
+        await message.answer(f"Ваш токен: {token}")
+    else:
+        await message.answer("Токена нет.")

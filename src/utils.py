@@ -19,3 +19,6 @@ def escape_markdown_v2(text):
     for char in escape_chars:
         text = text.replace(char, f'\\{char}')
     return text
+
+def check_access_token() -> bool:
+    ...
