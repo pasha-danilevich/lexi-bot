@@ -1,6 +1,11 @@
 # src/utils.py
 
 
+from aiogram.types import Message
+
+from database import Database, User
+
+
 def format_message(text: str, format_type: str) -> str:
     switcher = {
         'bold': f"**{text}**",  # Жирный текст
@@ -20,5 +25,16 @@ def escape_markdown_v2(text):
         text = text.replace(char, f'\\{char}')
     return text
 
-def check_access_token() -> bool:
-    ...
+
+async def get_user(message: Message, db: Database) -> User | None:
+    if message.from_user:
+        user_id = message.from_user.id
+        
+    user_data = db.get_user(tg_user_id=user_id)
+
+    if user_data:
+        user = User(user_data=user_data )
+    else:
+        user = None
+    
+    return user

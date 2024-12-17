@@ -11,6 +11,7 @@ from aiogram.filters import Command
 from config import DOMAIN
 from database import Database, User
 import message as text_message
+from utils import get_user
 
 router = Router()
 url = f"http://{DOMAIN}/api/tg-auth/"
@@ -39,12 +40,16 @@ async def start_handler(message: Message, state: FSMContext):
                         token = await response.json()
                         
                         await state.update_data(access_token=token)  
-                    else:
+                    elif response.status == 404:
                         await message.answer(
                             text=text_message.ERROR_GET_ACCESS_TOKEN
                         )
+                    else:
+                        await message.answer(
+                            text=text_message.UNEXPECTED_ERROR_GET_ACCESS_TOKEN
+                        )
 
-    user = await _get_user(message=message, db=db)     
+    user = await get_user(message=message, db=db)     
 
     if not token:
         if not user:
@@ -55,6 +60,7 @@ async def start_handler(message: Message, state: FSMContext):
             # актуален ли access_token у user
 
             if user.is_correct_access_token():
+                await state.update_data(access_token=user.access_token)  
                 await message.answer(
                     text=text_message.YOU_AUTH_MESSEGE
                 )
@@ -84,18 +90,7 @@ async def _get_hash(message_text: str) -> str | None:
         hash = None      
     return hash
 
-async def _get_user(message: Message, db: Database) -> User | None:
-    if message.from_user:
-        user_id = message.from_user.id
-        
-    user_data = db.get_user(tg_user_id=user_id)
 
-    if user_data:
-        user = User(user_data=user_data )
-    else:
-        user = None
-    
-    return user
 
 
 
