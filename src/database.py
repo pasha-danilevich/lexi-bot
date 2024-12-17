@@ -36,9 +36,60 @@ class Database:
             SELECT * FROM users WHERE tg_user_id = ?
         ''', (tg_user_id,))
         return self.cursor.fetchone()
+    
+    def get_all_users(self):
+        """Получение информации о всех пользователях."""
+        self.cursor.execute('''
+            SELECT * FROM users
+        ''')
+        return self.cursor.fetchall()  # Используем fetchall для получения всех записей
+    
+    def edit_access_token(self, tg_user_id: int, new_access_token: str) -> bool:
+        """Обновление access_token для указанного пользователя.
+            True - Обновлен
+            Fasle - Не обновлен
+        """
+        self.cursor.execute('''
+            UPDATE users SET access_token = ? WHERE tg_user_id = ?
+        ''', (new_access_token, tg_user_id))
+        self.connection.commit()
+        # Проверяем количество строк, которые были обновлены
+        if self.cursor.rowcount == 0:
+            return False
+        else:
+            return True
+        
+        self.connection.commit()
 
     def close(self):
         """Закрытие соединения с базой данных."""
         self.connection.close()
 
 
+import jwt
+from datetime import datetime, timezone
+
+class User:
+    def __init__(self, user_data):
+        self.id:int = user_data[0]
+        self.tg_user_id:int = user_data[1]
+        self.access_token:str = user_data[2]  # Исправлено на правильный индекс для access_token
+
+    def is_correct_access_token(self) -> bool:
+        """Проверка JWT access_token на истечение срока."""
+        try:
+            # Декодируем токен, чтобы получить его payload
+            payload = jwt.decode(self.access_token, options={"verify_signature": False})  # Не проверяем подпись для проверки срока
+
+            exp = payload.get('exp')  # Получаем время истечения срока действия токена
+            
+            if exp is None:
+                return False  # Если 'exp' отсутствует, токен считается недействительным
+
+            # Проверяем, не истек ли токен
+            expiration_time = datetime.fromtimestamp(exp, tz=timezone.utc)
+            return expiration_time > datetime.now(tz=timezone.utc)
+        except jwt.ExpiredSignatureError:
+            return False  # Токен истек
+        except jwt.InvalidTokenError:
+            return False  # Неверный токен

@@ -3,3 +3,4 @@ env
 .env
 __pycache__
 src/users.db
+users.db
