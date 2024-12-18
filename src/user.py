@@ -1,14 +1,15 @@
 # src/user.py
 
 from dataclasses import dataclass
-from passlib.hash import django_pbkdf2_sha256
+
 
 @dataclass
 class User:
     email: str
     username: str
     password: str
-    
+
+
 # Предположим, что у вас есть сохраненный хеш пароля из базы данных
 stored_password_hash = ""
 

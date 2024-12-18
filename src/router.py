@@ -5,6 +5,7 @@ from aiogram import Router
 from handlers.my_profile import router as my_profile_router
 from handlers.start import router as start_router
 
+
 main_router = Router()
 
 # Регистрация маршрутов из других модулей

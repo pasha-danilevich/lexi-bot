@@ -1,0 +1,3 @@
+[flake8]
+exclude = __init__.py, __pycache__, env
+ignore = E402, W291
