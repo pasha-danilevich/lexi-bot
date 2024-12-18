@@ -20,7 +20,7 @@ training_url = f"http://{DOMAIN}/api/training/info/"
 
 
 @router.message(Command("my_profile"))
-async def view_token_handler(message: Message, state: FSMContext):
+async def my_profile_handler(message: Message, state: FSMContext):
     data = await state.get_data()
     access_token = data.get("access_token")
 
