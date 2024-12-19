@@ -1,12 +1,19 @@
 # src/database.py
 
+import os
 import sqlite3
 
 
 class Database:
     def __init__(self, db_name="users.db"):
         """Инициализация базы данных."""
-        self.connection = sqlite3.connect(db_name)
+        # Получаем путь к директории файла main.py
+        base_dir = os.path.dirname(os.path.abspath(__file__))
+        # Создаем полный путь к файлу базы данных
+        self.db_path = os.path.join(base_dir, db_name)
+
+        print(f"init db")
+        self.connection = sqlite3.connect(self.db_path)
         self.cursor = self.connection.cursor()
         self._create_table()
 
@@ -84,39 +91,4 @@ class Database:
         self.connection.close()
 
 
-from datetime import datetime, timezone
 
-import jwt
-
-
-class User:
-    def __init__(self, user_data):
-        self.id: int = user_data[0]
-        self.tg_user_id: int = user_data[1]
-        self.access_token: str = user_data[
-            2
-        ]  # Исправлено на правильный индекс для access_token
-
-    def is_correct_access_token(self) -> bool:
-        """Проверка JWT access_token на истечение срока."""
-        try:
-            # Декодируем токен, чтобы получить его payload
-            payload = jwt.decode(
-                self.access_token, options={"verify_signature": False}
-            )  # Не проверяем подпись для проверки срока
-
-            exp = payload.get(
-                "exp"
-            )  # Получаем время истечения срока действия токена
-
-            if exp is None:
-                return False  # Если 'exp' отсутствует,
-            # токен считается недействительным
-
-            # Проверяем, не истек ли токен
-            expiration_time = datetime.fromtimestamp(exp, tz=timezone.utc)
-            return expiration_time > datetime.now(tz=timezone.utc)
-        except jwt.ExpiredSignatureError:
-            return False  # Токен истек
-        except jwt.InvalidTokenError:
-            return False  # Неверный токен

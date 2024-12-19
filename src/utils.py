@@ -1,10 +1,12 @@
 # src/utils.py
 
 
+from typing import Any
 from aiogram.types import Message
+import aiohttp
 
-from database import Database, User
-
+from database import Database
+from models import User
 
 def format_message(text: str, format_type: str) -> str:
     switcher = {
@@ -40,3 +42,22 @@ async def get_user(message: Message, db: Database) -> User | None:
         user = None
 
     return user
+
+
+async def get_response_data(headers, url: str):
+    async with aiohttp.ClientSession() as session:
+        async with session.get(url, headers=headers) as response:
+            if response.status == 200:
+                data = await response.json()
+                return data
+            else:
+                print(f"Ошибка: {response.status}")
+                return None
+
+
+async def get_headers(access_token: str | Any | None) -> dict[str, str] | None:
+    if access_token is not None:
+        headers = {"Authorization": f"Beare {access_token}"}
+        return headers
+    else:
+        return None

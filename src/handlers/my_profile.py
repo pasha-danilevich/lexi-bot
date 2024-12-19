@@ -10,7 +10,7 @@ from aiogram.types import Message
 
 from config import DOMAIN
 from message import NON_AUTHORIZETE
-from utils import get_user
+from utils import get_headers, get_response_data, get_user
 
 
 router = Router()
@@ -21,21 +21,12 @@ training_url = f"http://{DOMAIN}/api/training/info/"
 
 @router.message(Command("my_profile"))
 async def my_profile_handler(message: Message, state: FSMContext):
-    data = await state.get_data()
-    access_token = data.get("access_token")
-
+    state_data = await state.get_data()
+    access_token = state_data.get("access_token", None)
+    
     if not access_token:
-        print("not access_token, get from db")
-        from main import db
-
-        user = await get_user(message=message, db=db)
-        if user:
-            access_token_data = await state.update_data(
-                access_token=user.access_token
-            )
-            access_token = access_token_data.get("access_token")
-        else:
-            await message.answer(text=NON_AUTHORIZETE)
+        await message.answer(text=NON_AUTHORIZETE)
+        return
 
     headers = await get_headers(access_token=access_token)
 
@@ -53,25 +44,6 @@ async def my_profile_handler(message: Message, state: FSMContext):
         )
     else:
         await message.answer("Токена нет.")
-
-
-async def get_response_data(headers, url: str):
-    async with aiohttp.ClientSession() as session:
-        async with session.get(url, headers=headers) as response:
-            if response.status == 200:
-                data = await response.json()
-                return data
-            else:
-                print(f"Ошибка: {response.status}")
-                return None
-
-
-async def get_headers(access_token: str | Any | None) -> dict[str, str] | None:
-    if access_token is not None:
-        headers = {"Authorization": f"Beare {access_token}"}
-        return headers
-    else:
-        return None
 
 
 async def display_profile_info(data) -> str:
@@ -101,8 +73,7 @@ async def display_training_info(data) -> str:
 
     # Форматирование строки для вывода
     training_info = (
-        f"""Необходимо повторить {markdown.bold(words_to_repeat)} 
-        {markdown.bold('слов')} \n"""
+        f"Необходимо повторить {markdown.bold(words_to_repeat)} {markdown.bold('слов')} \n"
         f"Тест с выбором ответа: "
         f"{markdown.bold(choice_test_words)}\n"
         f"Тест на узнаваемость: "

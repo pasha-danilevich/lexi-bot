@@ -18,4 +18,11 @@ router = Router()
 
 @router.message(Command("add_word"))
 async def add_word_handler(message: Message, state: FSMContext):
-    pass
+    state_data = await state.get_data()
+    access_token = state_data.get("access_token", None)
+    
+    if not access_token:
+        await message.answer(text=NON_AUTHORIZETE)
+        return
+    
+    await message.answer(text=access_token)

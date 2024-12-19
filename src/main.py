@@ -9,6 +9,7 @@ from aiogram.fsm.storage.memory import MemoryStorage
 
 import config
 from database import Database
+from middleware import CounterMiddleware
 from router import main_router
 
 
@@ -22,6 +23,8 @@ async def main():
     )
     dp = Dispatcher(storage=MemoryStorage())
     dp.include_router(main_router)
+    # Установка middleware
+    dp.message.middleware(CounterMiddleware())
 
     await bot.delete_webhook(drop_pending_updates=True)
     await dp.start_polling(bot, allowed_updates=dp.resolve_used_update_types())

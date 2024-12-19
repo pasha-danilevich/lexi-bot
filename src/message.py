@@ -3,6 +3,11 @@ START_MESSEGE = """Добро пожаловать в **lexi-bot**.
 с его помощью легче повторять слова, 
 которые уже есть в вашем аккаунте."""
 
+ALREADY_AUTHORIZED = """Вы уже авторизированны.
+/my_profile
+/training
+/add_word"""
+
 YOU_AUTH_MESSEGE = """**Вы авторизовались.**
 /my_profile
 /training
