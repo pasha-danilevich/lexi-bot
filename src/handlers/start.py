@@ -17,10 +17,10 @@ url = f"http://{DOMAIN}/api/tg-auth/"
 
 @router.message(Command("start"))
 async def start_handler(message: Message, state: FSMContext):
-    
+
     state_data = await state.get_data()
     access_token = state_data.get("access_token", None)
-    
+
     if access_token:
         await message.answer(text=text_message.ALREADY_AUTHORIZED)
         return

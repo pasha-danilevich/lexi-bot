@@ -89,6 +89,3 @@ class Database:
     def close(self):
         """Закрытие соединения с базой данных."""
         self.connection.close()
-
-
-

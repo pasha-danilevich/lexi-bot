@@ -23,7 +23,7 @@ training_url = f"http://{DOMAIN}/api/training/info/"
 async def my_profile_handler(message: Message, state: FSMContext):
     state_data = await state.get_data()
     access_token = state_data.get("access_token", None)
-    
+
     if not access_token:
         await message.answer(text=NON_AUTHORIZETE)
         return

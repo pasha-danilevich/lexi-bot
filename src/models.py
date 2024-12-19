@@ -34,7 +34,7 @@ class User:
             return False  # Токен истек
         except jwt.InvalidTokenError:
             return False  # Неверный токен
-        
+
 
 class Word:
     def __init__(self) -> None:

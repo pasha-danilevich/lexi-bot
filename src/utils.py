@@ -8,6 +8,7 @@ import aiohttp
 from database import Database
 from models import User
 
+
 def format_message(text: str, format_type: str) -> str:
     switcher = {
         "bold": f"**{text}**",  # Жирный текст
