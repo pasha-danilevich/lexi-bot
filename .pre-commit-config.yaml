@@ -1,9 +1,0 @@
-repos:
-  - repo: local
-    hooks:
-
-      - id: black
-        name: black
-        entry: black --config ./.black .
-        language: system
-        types: [python]
