@@ -42,8 +42,6 @@ async def my_profile_handler(message: Message, state: FSMContext):
         await message.answer(
             text=training_info, parse_mode=ParseMode.MARKDOWN_V2
         )
-    else:
-        await message.answer("Токена нет.")
 
 
 async def display_profile_info(data) -> str:

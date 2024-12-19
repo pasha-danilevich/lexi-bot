@@ -12,7 +12,6 @@ class Database:
         # Создаем полный путь к файлу базы данных
         self.db_path = os.path.join(base_dir, db_name)
 
-        print(f"init db")
         self.connection = sqlite3.connect(self.db_path)
         self.cursor = self.connection.cursor()
         self._create_table()
@@ -84,7 +83,6 @@ class Database:
         else:
             return True
 
-        self.connection.commit()
 
     def close(self):
         """Закрытие соединения с базой данных."""
