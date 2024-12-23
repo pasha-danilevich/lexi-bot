@@ -1,4 +1,3 @@
-import random
 from typing import Any, cast
 
 from aiogram import types
@@ -85,22 +84,7 @@ async def translate_word_handler(message: Message, state: FSMContext):
     await state.set_state(None)
 
 
-@router.callback_query(F.data == keyboards.add_word_to_dict_cd_data)
-async def add_word_to_dict(callback: types.CallbackQuery, state: FSMContext):
 
-    message_text = "Какое слово добавить в словарь:"
-    message = cast(Message, callback.message)
-
-    state_data = await state.get_data()
-    word_instance: Word = state_data.get("word_instance", None)
-
-    await message.answer(
-        text=message_text,
-        reply_markup=keyboards.get_translation_list(
-            translations=word_instance.translations,
-            related_pk=word_instance.related_pk,
-        ),
-    )
 
 
 def make_post_data(text: str) -> dict:

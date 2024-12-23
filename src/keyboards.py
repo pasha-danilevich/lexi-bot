@@ -89,7 +89,6 @@ def get_translation_list(
     local_related_pk = related_pk.copy()
 
     for translation in translations:
-        print(translation.pk, local_related_pk)
         # Если перевод слова есть у пользователя, то пропускаем его
         if translation.pk in local_related_pk:
             local_related_pk.remove(translation.pk)
