@@ -135,4 +135,5 @@ class Word:
             f"Word(pk={self.pk}, text='{self.text}', part_of_speech='{self.part_of_speech}', "
             f"transcription='{self.transcription}', translations={self.translations}, "
             f"synonyms={self.synonyms}, meanings={self.meanings})"
+            f"reladed_pk={self.related_pk}"
         )

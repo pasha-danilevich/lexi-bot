@@ -6,6 +6,8 @@ from aiogram.types import (
 )
 from aiogram.utils.keyboard import InlineKeyboardBuilder
 
+from models import Translation
+
 
 random_num_updated_cb_data = "random_num_updated_cb_data"
 add_word_cb_data = "add_word_cb_data"
@@ -73,13 +75,42 @@ word_info = InlineKeyboardMarkup(
                 text="Найти другое слово", callback_data=add_word_cb_data
             ),
         ],
-        [
-            InlineKeyboardButton(
-                text="Профиль", callback_data=profile_cd_data
-            )
-        ]
+        [InlineKeyboardButton(text="Профиль", callback_data=profile_cd_data)],
     ]
 )
+
+
+def get_translation_list(
+    translations: list[Translation], related_pk: list[int]
+) -> InlineKeyboardMarkup:
+    buttons = []
+    buttons_line = []
+    
+    local_related_pk = related_pk.copy()
+
+    for translation in translations:
+        print(translation.pk, local_related_pk)
+        # Если перевод слова есть у пользователя, то пропускаем его
+        if translation.pk in local_related_pk:
+            local_related_pk.remove(translation.pk)
+            continue  
+
+        button = InlineKeyboardButton(
+            text=translation.text,
+            callback_data=f"translation_list_cd_data_pk_{translation.pk}",
+        )
+        buttons_line.append(button)
+
+        # Если достигли лимита в 3 кнопки, добавляем текущую строку в buttons
+        if len(buttons_line) == 3:
+            buttons.append(buttons_line)
+            buttons_line = []  # Начинаем новую строку
+
+    # Добавляем оставшиеся кнопки, если они есть
+    if buttons_line:
+        buttons.append(buttons_line)
+
+    return InlineKeyboardMarkup(inline_keyboard=buttons)
 
 
 def build_actions_kb(

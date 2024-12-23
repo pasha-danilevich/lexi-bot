@@ -10,3 +10,7 @@ class Token(StatesGroup):
 
 class AddWord(StatesGroup):
     text = State()
+
+
+class WordInstanse(StatesGroup):
+    word_instance = State()
