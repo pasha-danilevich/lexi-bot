@@ -7,35 +7,90 @@ from aiogram.types import (
 from aiogram.utils.keyboard import InlineKeyboardBuilder
 
 
-# Создание клавиатуры с кнопками
-main = ReplyKeyboardMarkup(
-    keyboard=[
-        [KeyboardButton(text="Каталог")],
-        [KeyboardButton(text="Корзина"), KeyboardButton(text="Контакты")],
-    ],
-    resize_keyboard=True,
-    input_field_placeholder="Выберите пункт меню.",
-)
+random_num_updated_cb_data = "random_num_updated_cb_data"
+add_word_cb_data = "add_word_cb_data"
+training_cb_data = "training_cb_data"
+profile_cd_data = "profile_cd_data"
+add_word_to_dict_cd_data = "add_word_to_dict_cd_data"
+meaning_cb_data = "meaning_cb_data"
 
-# Создание инлайн-клавиатуры
-settings = InlineKeyboardMarkup(
+recognize_test_cb_data = "recognize_test_cb_data"
+reproduce_test_cb_data = "reproduce_test_cb_data"
+
+
+my_profile = InlineKeyboardMarkup(
     inline_keyboard=[
         [
             InlineKeyboardButton(
-                text="YouTube", url="https://youtube.com/@sudoteach"
+                text="Найти / Добавить слово", callback_data=add_word_cb_data
+            ),
+            InlineKeyboardButton(
+                text="Тренировка слов", callback_data=training_cb_data
             )
         ]
     ]
 )
 
-# Список автомобилей
-cars = ["Tesla", "Mercedes", "BMW", "Porsche"]
+training = InlineKeyboardMarkup(
+    inline_keyboard=[
+        [
+            InlineKeyboardButton(
+                text="Тест на узнаваемость",
+                callback_data=recognize_test_cb_data,
+            ),
+            InlineKeyboardButton(
+                text="Тест с выбором ответа",
+                callback_data=reproduce_test_cb_data,
+            ),
+            InlineKeyboardButton(
+                text="Профиль", 
+                callback_data=profile_cd_data
+            ),
+        ]
+    ]
+)
+
+add_word = InlineKeyboardMarkup(
+    inline_keyboard=[
+        [
+            InlineKeyboardButton(
+                text="Вернуться в профиль",
+                callback_data=profile_cd_data,
+            )
+        ]
+    ]
+)
+
+word_info = InlineKeyboardMarkup(
+    inline_keyboard=[
+        [
+            InlineKeyboardButton(
+                text="Добавить слово",
+                callback_data=add_word_to_dict_cd_data,
+            ),
+            InlineKeyboardButton(
+                text="Близкие по значению",
+                callback_data=meaning_cb_data,
+            ),
+            InlineKeyboardButton(
+                text="Профиль", 
+                callback_data=profile_cd_data
+            ),
+            InlineKeyboardButton(
+                text="Найти другое слово", 
+                callback_data=add_word_cb_data
+            ),
+        ]
+    ]
+)
 
 
-async def inline_cars():
-    keyboard = InlineKeyboardBuilder()
-    for car in cars:
-        keyboard.add(
-            InlineKeyboardButton(text=car, callback_data=f"car_{car}")
-        )
-    return keyboard.adjust(2).as_markup()
+def build_actions_kb(
+    button_text="Random number",
+) -> InlineKeyboardMarkup:
+    builder = InlineKeyboardBuilder()
+    builder.button(
+        text=button_text,
+        callback_data=random_num_updated_cb_data,
+    )
+    return builder.as_markup()
