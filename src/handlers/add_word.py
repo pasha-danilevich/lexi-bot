@@ -30,19 +30,21 @@ word_url = f"http://{DOMAIN}/api/words/"
 
 @router.message(Command("add_word"))
 @router.callback_query(F.data == keyboards.add_word_cb_data)
-async def add_word_handler(message_or_callback: Message | types.CallbackQuery, state: FSMContext):
+async def add_word_handler(
+    message_or_callback: Message | types.CallbackQuery, state: FSMContext
+):
     await state.set_state(AddWord.text)
     message_text = "Введите слово на английском:"
 
     # await message_or_callback.answer("Введите слово на английском:")
-    
+
     if isinstance(message_or_callback, Message):
         await message_or_callback.answer(
             text=message_text,
             reply_markup=keyboards.add_word,
         )
     elif isinstance(message_or_callback, types.CallbackQuery):
-        await message_or_callback.message.edit_text( # type: ignore
+        await message_or_callback.message.edit_text(  # type: ignore
             text=message_text,
             reply_markup=keyboards.add_word,
         )
@@ -73,10 +75,10 @@ async def translate_word_handler(message: Message, state: FSMContext):
         word_instance = Word.from_json(json_data)
         text = display_info(word=word_instance)
         await message.answer(
-            text=text, 
+            text=text,
             parse_mode=ParseMode.MARKDOWN_V2,
-            reply_markup=keyboards.word_info
-            )
+            reply_markup=keyboards.word_info,
+        )
 
 
 def make_post_data(text: str) -> dict:
@@ -115,15 +117,14 @@ def display_info(word: Word) -> str:
     )
     if synonym_list:
         text += synonym_text
-        
+
     meaning_text = (
         f"\n"
         f"{markdown.italic('Близкие по значению:')} \n"
         f"{escape_markdown_v2(', '.join(meaning_list))} \n"
     )
-    
+
     if meaning_list:
         text += meaning_text
 
     return text
-

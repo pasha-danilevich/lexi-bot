@@ -83,7 +83,6 @@ class Database:
         else:
             return True
 
-
     def close(self):
         """Закрытие соединения с базой данных."""
         self.connection.close()

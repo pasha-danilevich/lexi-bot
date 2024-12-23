@@ -58,6 +58,7 @@ async def get_response_data(headers, url: str):
 
 import aiohttp
 
+
 async def get_response_data_post(headers, url: str, data):
     async with aiohttp.ClientSession() as session:
         async with session.post(url, headers=headers, json=data) as response:
@@ -67,7 +68,6 @@ async def get_response_data_post(headers, url: str, data):
             else:
                 print(f"Ошибка: {response.status}")
                 return None
-
 
 
 async def get_headers(access_token: str | Any | None) -> dict[str, str] | None:

@@ -20,7 +20,9 @@ home_url = f"http://{DOMAIN}/api/home/"
 
 @router.message(Command("my_profile"))
 @router.callback_query(F.data == keyboards.profile_cd_data)
-async def my_profile_handler(message_or_callback: Message | CallbackQuery, state: FSMContext):
+async def my_profile_handler(
+    message_or_callback: Message | CallbackQuery, state: FSMContext
+):
     state_data = await state.get_data()
     access_token = state_data.get("access_token", None)
 
@@ -33,7 +35,7 @@ async def my_profile_handler(message_or_callback: Message | CallbackQuery, state
     if headers:
         home_data = await get_response_data(headers, home_url)
         profile_info = await display_profile_info(home_data)
-        
+
         if isinstance(message_or_callback, Message):
             await message_or_callback.answer(
                 text=profile_info,
@@ -41,7 +43,7 @@ async def my_profile_handler(message_or_callback: Message | CallbackQuery, state
                 reply_markup=keyboards.my_profile,
             )
         elif isinstance(message_or_callback, CallbackQuery):
-            await message_or_callback.message.edit_text( # type: ignore
+            await message_or_callback.message.edit_text(  # type: ignore
                 text=profile_info,
                 parse_mode=ParseMode.MARKDOWN_V2,
                 reply_markup=keyboards.my_profile,

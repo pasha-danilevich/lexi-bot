@@ -26,7 +26,7 @@ my_profile = InlineKeyboardMarkup(
             ),
             InlineKeyboardButton(
                 text="Тренировка слов", callback_data=training_cb_data
-            )
+            ),
         ]
     ]
 )
@@ -43,8 +43,7 @@ training = InlineKeyboardMarkup(
                 callback_data=reproduce_test_cb_data,
             ),
             InlineKeyboardButton(
-                text="Профиль", 
-                callback_data=profile_cd_data
+                text="Профиль", callback_data=profile_cd_data
             ),
         ]
     ]
@@ -73,12 +72,10 @@ word_info = InlineKeyboardMarkup(
                 callback_data=meaning_cb_data,
             ),
             InlineKeyboardButton(
-                text="Профиль", 
-                callback_data=profile_cd_data
+                text="Профиль", callback_data=profile_cd_data
             ),
             InlineKeyboardButton(
-                text="Найти другое слово", 
-                callback_data=add_word_cb_data
+                text="Найти другое слово", callback_data=add_word_cb_data
             ),
         ]
     ]

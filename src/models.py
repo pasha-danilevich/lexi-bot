@@ -55,7 +55,6 @@ class Translation:
 
     def __repr__(self):
         return f"Translation(pk={self.pk}, text='{self.text}', part_of_speech={self.part_of_speech}, gender='{self.gender}', frequency={self.frequency})"
-    
 
 
 class Synonym:
