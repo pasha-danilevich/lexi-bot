@@ -54,14 +54,12 @@ async def my_profile_handler(
 async def display_profile_info(data) -> str:
     # Пример данных
     total_words = data["learning_words"]
-    added_books = data["upload_books"]
     new_words_today = data["new_words_today"]
 
     # Форматирование строки для вывода
     profile_info = (
         f"{markdown.bold('Ваш профиль:')} \n"
         f"Всего слов: {markdown.bold(total_words)} \n"
-        f"Добавленных книг: {markdown.bold(added_books)} \n"
         f"Новых слов за сегодня: {markdown.bold(new_words_today)} \n"
     )
     return profile_info
