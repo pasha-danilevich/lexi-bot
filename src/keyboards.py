@@ -42,10 +42,13 @@ training = InlineKeyboardMarkup(
                 text="Тест с выбором ответа",
                 callback_data=reproduce_test_cb_data,
             ),
+        ],
+        [
             InlineKeyboardButton(
-                text="Профиль", callback_data=profile_cd_data
+                text="Профиль",
+                callback_data=profile_cd_data,
             ),
-        ]
+        ],
     ]
 )
 
@@ -70,7 +73,9 @@ word_info = InlineKeyboardMarkup(
             InlineKeyboardButton(
                 text="Близкие по значению",
                 callback_data=meaning_cb_data,
-            ),
+            )
+        ],
+        [
             InlineKeyboardButton(
                 text="Профиль", callback_data=profile_cd_data
             ),
