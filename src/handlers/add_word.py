@@ -105,11 +105,17 @@ def display_info(word: Word) -> str:
     # Форматирование строки для вывода
     text = (
         f"{markdown.bold(word.text)} \n"
-        f"\\[ {word.transcription} \\] {word.part_of_speech}\\. \n"
         f"\n"
+    )
+    
+    if word.transcription is not None:
+        text += f"\\[ {word.transcription} \\] {word.part_of_speech}\\. \n"
+    
+    text += (
         f"{markdown.italic('Перевод:')} \n"
         f"{escape_markdown_v2(translation_list)}"
     )
+    
     synonym_text = (
         f"\n"
         f"{markdown.italic('Синонимы:')} \n"
