@@ -12,7 +12,6 @@ add_word_cb_data = "add_word_cb_data"
 training_cb_data = "training_cb_data"
 profile_cd_data = "profile_cd_data"
 add_word_to_dict_cd_data = "add_word_to_dict_cd_data"
-meaning_cb_data = "meaning_cb_data"
 
 recognize_test_cb_data = "recognize_test_cb_data"
 reproduce_test_cb_data = "reproduce_test_cb_data"
@@ -71,17 +70,13 @@ word_info = InlineKeyboardMarkup(
                 callback_data=add_word_to_dict_cd_data,
             ),
             InlineKeyboardButton(
-                text="Близкие по значению",
-                callback_data=meaning_cb_data,
-            )
+                text="Найти другое слово", callback_data=add_word_cb_data
+            ),
         ],
         [
             InlineKeyboardButton(
                 text="Профиль", callback_data=profile_cd_data
-            ),
-            InlineKeyboardButton(
-                text="Найти другое слово", callback_data=add_word_cb_data
-            ),
+            )
         ]
     ]
 )
