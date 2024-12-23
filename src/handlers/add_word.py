@@ -79,6 +79,8 @@ async def translate_word_handler(message: Message, state: FSMContext):
             parse_mode=ParseMode.MARKDOWN_V2,
             reply_markup=keyboards.word_info,
         )
+    
+    await state.clear()  # Завершаем текущее состояние и очищаем данные
 
 
 def make_post_data(text: str) -> dict:
