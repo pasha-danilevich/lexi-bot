@@ -90,10 +90,15 @@ def make_post_data(text: str) -> dict:
 def display_info(word: Word) -> str:
 
     translation_list = ""
+    local_related_pk_list = word.related_pk
 
     for index, translation in enumerate(word.translations, start=1):
-        translation_list += f"{index}. {translation.text}\n"
-
+        if translation.pk in local_related_pk_list:
+            translation_list += f"{index}. {translation.text} (в словаре)\n"
+            local_related_pk_list.remove(translation.pk) 
+        else:
+            translation_list += f"{index}. {translation.text}\n"
+                
     synonym_list = []
 
     for synonym in word.synonyms:
@@ -107,11 +112,13 @@ def display_info(word: Word) -> str:
     # Форматирование строки для вывода
     text = (
         f"{markdown.bold(word.text)} \n"
-        f"\n"
     )
     
     if word.transcription is not None:
-        text += f"\\[ {word.transcription} \\] {word.part_of_speech}\\. \n"
+        text += (
+            f"\\[ {word.transcription} \\] {word.part_of_speech}\\. \n"
+            f"\n"
+            )
     
     text += (
         f"{markdown.italic('Перевод:')} \n"
