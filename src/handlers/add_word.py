@@ -8,9 +8,9 @@ from aiogram.filters import Command
 from aiogram.fsm.context import FSMContext
 from aiogram.types import Message
 
-import keyboards
 from config import DOMAIN
-from message import NON_AUTHORIZETE
+from markup import buttons, keyboards
+from markup.message import NON_AUTHORIZETE
 from models import Word
 from state import AddWord
 from utils import (
@@ -18,7 +18,6 @@ from utils import (
     get_headers,
     get_response_data,
     get_response_data_post,
-    get_user,
 )
 
 
@@ -28,21 +27,20 @@ word_url = f"http://{DOMAIN}/api/words/"
 
 
 @router.message(Command("add_word"))
-@router.callback_query(F.data == keyboards.add_word_cb_data)
+@router.callback_query(F.data == buttons.add_word_cb_data)
 async def add_word_handler(
     message_or_callback: Message | types.CallbackQuery, state: FSMContext
 ):
     await state.set_state(AddWord.text)
     message_text = "Введите слово на английском:"
 
-    # await message_or_callback.answer("Введите слово на английском:")
     if isinstance(message_or_callback, Message):
         await message_or_callback.answer(
             text=message_text,
             reply_markup=keyboards.add_word,
         )
     elif isinstance(message_or_callback, types.CallbackQuery):
-        await message_or_callback.message.edit_text(  # type: ignore
+        await message_or_callback.message.answer(  # type: ignore
             text=message_text,
             reply_markup=keyboards.add_word,
         )

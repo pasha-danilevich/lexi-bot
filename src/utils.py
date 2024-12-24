@@ -1,12 +1,14 @@
 # src/utils.py
 
 
+from datetime import datetime, timezone
 from typing import Any, Tuple
 from aiogram.types import Message
 import aiohttp
+import jwt
 
-from database import Database
-from models import User
+# from database import Database
+# from models import User
 
 
 def format_message(text: str, format_type: str) -> str:
@@ -31,18 +33,29 @@ def escape_markdown_v2(text):
     return text
 
 
-async def get_user(message: Message, db: Database) -> User | None:
-    if message.from_user:
-        user_id = message.from_user.id
+def check_access_token(access_token: str):
+    """Проверка JWT access_token на истечение срока."""
+    try:
+        # Декодируем токен, чтобы получить его payload
+        payload = jwt.decode(
+            access_token, options={"verify_signature": False}
+        )  # Не проверяем подпись для проверки срока
 
-    user_data = db.get_user(tg_user_id=user_id)
+        exp = payload.get(
+            "exp"
+        )  # Получаем время истечения срока действия токена
 
-    if user_data:
-        user = User(user_data=user_data)
-    else:
-        user = None
+        if exp is None:
+            return False  # Если 'exp' отсутствует,
+        # токен считается недействительным
 
-    return user
+        # Проверяем, не истек ли токен
+        expiration_time = datetime.fromtimestamp(exp, tz=timezone.utc)
+        return expiration_time > datetime.now(tz=timezone.utc)
+    except jwt.ExpiredSignatureError:
+        return False  # Токен истек
+    except jwt.InvalidTokenError:
+        return False  # Неверный токен
 
 
 async def get_response_data(headers, url: str):

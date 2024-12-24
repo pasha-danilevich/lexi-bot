@@ -8,9 +8,9 @@ from aiogram.fsm.context import FSMContext
 from aiogram.types import CallbackQuery, Message
 
 from config import DOMAIN
-import keyboards
-from message import NON_AUTHORIZETE
-from utils import get_headers, get_response_data, get_user
+from markup import keyboards, buttons
+from markup.message import NON_AUTHORIZETE
+from utils import get_headers, get_response_data
 
 
 router = Router()
@@ -19,7 +19,7 @@ training_url = f"http://{DOMAIN}/api/training/info/"
 
 
 @router.message(Command("training"))
-@router.callback_query(F.data == keyboards.training_cb_data)
+@router.callback_query(F.data == buttons.training_cb_data)
 async def training_handler(
     message_or_callback: Message | CallbackQuery, state: FSMContext
 ):
@@ -43,7 +43,7 @@ async def training_handler(
                 reply_markup=keyboards.training,
             )
         elif isinstance(message_or_callback, CallbackQuery):
-            await message_or_callback.message.edit_text(  # type: ignore
+            await message_or_callback.message.answer(  # type: ignore
                 text=training_info,
                 parse_mode=ParseMode.MARKDOWN_V2,
                 reply_markup=keyboards.training,

@@ -2,6 +2,7 @@
 
 import os
 import sqlite3
+from typing import Any
 
 
 class Database:
@@ -42,7 +43,7 @@ class Database:
         except sqlite3.IntegrityError:
             print("Пользователь уже существует.")
 
-    def get_user(self, tg_user_id: int):
+    def get_user(self, tg_user_id: int) -> tuple | None:
         """Получение информации о пользователе по tg_user_id."""
         self.cursor.execute(
             """

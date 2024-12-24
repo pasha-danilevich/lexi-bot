@@ -6,9 +6,10 @@ from aiogram.filters import Command
 from aiogram.fsm.context import FSMContext
 from aiogram.types import Message
 
-import message as text_message
+from markup import message as text_message
 from config import DOMAIN
-from utils import get_user
+from models import User
+from utils import check_access_token
 
 
 router = Router()
@@ -22,10 +23,11 @@ async def start_handler(message: Message, state: FSMContext):
     access_token = state_data.get("access_token", None)
 
     if access_token:
-        await message.answer(text=text_message.ALREADY_AUTHORIZED)
+        if check_access_token(access_token):
+            await message.answer(text=text_message.ALREADY_AUTHORIZED)
+        else:
+            await message.answer(text=text_message.TOKEN_HAS_EXPIRED)
         return
-
-    from main import db
 
     await message.answer(text=text_message.START_MESSEGE)
 
@@ -50,9 +52,10 @@ async def start_handler(message: Message, state: FSMContext):
                             text=text_message.UNEXPECTED_ERROR_GET_ACCESS_TOKEN
                         )
 
-    user = await get_user(message=message, db=db)
+    user = User(message=message)
 
     if not access_token:
+
         if not user:
             await message.answer(text=text_message.YOU_ARE_FIRST)
         else:
@@ -65,11 +68,11 @@ async def start_handler(message: Message, state: FSMContext):
                 await message.answer(text=text_message.TOKEN_HAS_EXPIRED)
     else:
         await message.answer(text=text_message.YOU_AUTH_MESSEGE)
-        db.edit_access_token(
-            tg_user_id=message.from_user.id,  # type: ignore
-            new_access_token=access_token,
-        )
+        user.update_access_token(access_token)
+
         if not user:
+            from main import db
+
             db.add_user(
                 tg_user_id=message.from_user.id,  # type: ignore
                 access_token=access_token,

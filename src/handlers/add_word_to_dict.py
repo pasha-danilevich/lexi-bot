@@ -7,9 +7,9 @@ from aiogram.fsm.context import FSMContext
 from aiogram.types import Message
 from aiogram.utils import markdown
 
-import keyboards
+from markup import buttons, keyboards
 from config import DOMAIN
-from message import NON_AUTHORIZETE
+from markup.message import NON_AUTHORIZETE
 from models import Translation, Word
 from utils import get_headers, get_response_data_post
 
@@ -19,7 +19,7 @@ router = Router()
 add_word = f"http://{DOMAIN}/api/vocabulary/"
 
 
-@router.callback_query(F.data == keyboards.select_word_to_add_cd_data)
+@router.callback_query(F.data == buttons.select_word_to_add_cd_data)
 async def select_word_to_add(callback: types.CallbackQuery, state: FSMContext):
 
     message_text = "Какое слово добавить в словарь:"
@@ -69,17 +69,12 @@ async def add_word_to_dict(callback: types.CallbackQuery, state: FSMContext):
                 f"Добавленно новое слово: {markdown.bold(translation.text)}"
             )
         else:
-            message_text = (
-                f"Слово не может быть добавленно. Оно уже добавленно."
-            )
+            message_text = f"Слово уже добавленно\\."
 
-    await message.edit_text(
+    await message.answer(
         text=message_text,
         parse_mode=ParseMode.MARKDOWN_V2,
-        # reply_markup=keyboards.get_translation_list(
-        #     translations=word_instance.translations,
-        #     related_pk=word_instance.related_pk,
-        # ),
+        reply_markup=keyboards.word_added,
     )
 
 

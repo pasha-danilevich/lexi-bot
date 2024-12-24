@@ -4,8 +4,8 @@ from aiogram.fsm.context import FSMContext
 from aiogram import BaseMiddleware
 from aiogram.types import Message
 
-from message import NON_AUTHORIZETE
-from utils import get_user
+from markup.message import NON_AUTHORIZETE
+from models import User
 
 
 class CounterMiddleware(BaseMiddleware):
@@ -27,26 +27,14 @@ class CounterMiddleware(BaseMiddleware):
 
         if not access_token:
 
-            accest_token_from_db = await get_access_token_from_db(
-                message=message, state=state
-            )
+            user = User(message=message)
 
-            access_token = await state.update_data(
-                access_token=accest_token_from_db
-            )
+            if user.is_correct_access_token():
+                accest_token_from_user = user.get_access_token()
+                access_token = await state.update_data(
+                    access_token=accest_token_from_user
+                )
+            else:
+                access_token = await state.update_data(access_token=None)
 
         return await handler(event, data)
-
-
-async def get_access_token_from_db(
-    message: Message, state: FSMContext
-) -> str | None:
-
-    access_token = None
-    from main import db
-
-    user = await get_user(message=message, db=db)
-    if user:
-        access_token = user.access_token
-
-    return access_token

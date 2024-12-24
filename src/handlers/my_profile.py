@@ -8,9 +8,9 @@ from aiogram.fsm.context import FSMContext
 from aiogram.types import CallbackQuery, Message
 
 from config import DOMAIN
-import keyboards
-from message import NON_AUTHORIZETE
-from utils import get_headers, get_response_data, get_user
+from markup import keyboards, buttons
+from markup.message import NON_AUTHORIZETE
+from utils import get_headers, get_response_data
 
 
 router = Router()
@@ -19,7 +19,7 @@ home_url = f"http://{DOMAIN}/api/home/"
 
 
 @router.message(Command("my_profile"))
-@router.callback_query(F.data == keyboards.profile_cd_data)
+@router.callback_query(F.data == buttons.profile_cd_data)
 async def my_profile_handler(
     message_or_callback: Message | CallbackQuery, state: FSMContext
 ):
@@ -43,7 +43,7 @@ async def my_profile_handler(
                 reply_markup=keyboards.my_profile,
             )
         elif isinstance(message_or_callback, CallbackQuery):
-            await message_or_callback.message.edit_text(  # type: ignore
+            await message_or_callback.message.answer(  # type: ignore
                 text=profile_info,
                 parse_mode=ParseMode.MARKDOWN_V2,
                 reply_markup=keyboards.my_profile,

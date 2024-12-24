@@ -7,6 +7,7 @@ from handlers.start import router as start_router
 from handlers.add_word import router as add_word_router
 from handlers.training import router as training_router
 from handlers.add_word_to_dict import router as add_word_to_dict_router
+from handlers.delete import router as delete_router
 
 main_router = Router()
 
@@ -17,3 +18,4 @@ main_router.include_router(start_router)
 main_router.include_router(add_word_router)
 main_router.include_router(training_router)
 main_router.include_router(add_word_to_dict_router)
+main_router.include_router(delete_router)
