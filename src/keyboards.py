@@ -13,10 +13,12 @@ random_num_updated_cb_data = "random_num_updated_cb_data"
 add_word_cb_data = "add_word_cb_data"
 training_cb_data = "training_cb_data"
 profile_cd_data = "profile_cd_data"
-add_word_to_dict_cd_data = "add_word_to_dict_cd_data"
+select_word_to_add_cd_data = "select_word_to_add_cd_data"
 
 recognize_test_cb_data = "recognize_test_cb_data"
 reproduce_test_cb_data = "reproduce_test_cb_data"
+
+translation_list_cd_data_pk_ = "translation_list_cd_data_pk_"
 
 
 my_profile = InlineKeyboardMarkup(
@@ -69,7 +71,7 @@ word_info = InlineKeyboardMarkup(
         [
             InlineKeyboardButton(
                 text="Добавить слово",
-                callback_data=add_word_to_dict_cd_data,
+                callback_data=select_word_to_add_cd_data,
             ),
             InlineKeyboardButton(
                 text="Найти другое слово", callback_data=add_word_cb_data
@@ -85,18 +87,18 @@ def get_translation_list(
 ) -> InlineKeyboardMarkup:
     buttons = []
     buttons_line = []
-    
+
     local_related_pk = related_pk.copy()
 
     for translation in translations:
         # Если перевод слова есть у пользователя, то пропускаем его
         if translation.pk in local_related_pk:
             local_related_pk.remove(translation.pk)
-            continue  
+            continue
 
         button = InlineKeyboardButton(
             text=translation.text,
-            callback_data=f"translation_list_cd_data_pk_{translation.pk}",
+            callback_data=f"{translation_list_cd_data_pk_}{translation.pk}",
         )
         buttons_line.append(button)
 

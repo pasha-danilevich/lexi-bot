@@ -1,7 +1,7 @@
 # src/utils.py
 
 
-from typing import Any
+from typing import Any, Tuple
 from aiogram.types import Message
 import aiohttp
 
@@ -59,15 +59,23 @@ async def get_response_data(headers, url: str):
 import aiohttp
 
 
-async def get_response_data_post(headers, url: str, data):
+async def get_response_data_post(
+    headers: dict, url: str, data: dict
+) -> Tuple[Any, int]:
     async with aiohttp.ClientSession() as session:
-        async with session.post(url, headers=headers, json=data) as response:
-            if response.status in [200, 201]:
-                data = await response.json()
-                return data
-            else:
-                print(f"Ошибка: {response.status}")
-                return None
+        try:
+            async with session.post(
+                url, headers=headers, json=data
+            ) as response:
+                if response.status in [200, 201]:
+                    data = await response.json()
+                    return data, response.status
+                else:
+                    print(f"Ошибка: {response.status}")
+                    return None, response.status
+        except aiohttp.ClientError as e:
+            print(f"Ошибка при выполнении запроса: {e}")
+            return None, 500  # в случае ошибки запроса
 
 
 async def get_headers(access_token: str | Any | None) -> dict[str, str] | None:

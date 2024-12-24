@@ -63,7 +63,7 @@ async def translate_word_handler(message: Message, state: FSMContext):
     headers = await get_headers(access_token=access_token)
 
     if headers and user_text:
-        json_data = await get_response_data_post(
+        json_data, _ = await get_response_data_post(
             headers=headers, url=word_url, data=make_post_data(user_text)
         )
         if not json_data:
@@ -82,9 +82,6 @@ async def translate_word_handler(message: Message, state: FSMContext):
         )
 
     await state.set_state(None)
-
-
-
 
 
 def make_post_data(text: str) -> dict:

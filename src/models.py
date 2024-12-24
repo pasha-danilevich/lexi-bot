@@ -106,6 +106,13 @@ class Word:
 
         self.related_pk = related_pk
 
+    def get_translation(self, pk: int) -> Translation | None:
+        for translation in self.translations:
+            if translation.pk == pk:
+                return translation
+
+        return None
+
     @classmethod
     def from_json(cls, json_data):
         word_data = json_data["word"]
