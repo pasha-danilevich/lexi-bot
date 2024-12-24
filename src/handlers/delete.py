@@ -14,4 +14,5 @@ router = Router()
 async def delete_handler(callback: CallbackQuery, state: FSMContext):
 
     message = cast(Message, callback.message)
+    await state.set_state(None) # отмета ожидания ввода
     await message.delete()

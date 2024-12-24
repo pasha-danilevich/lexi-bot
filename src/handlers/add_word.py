@@ -16,7 +16,6 @@ from state import AddWord
 from utils import (
     escape_markdown_v2,
     get_headers,
-    get_response_data,
     get_response_data_post,
 )
 
