@@ -70,10 +70,10 @@ async def reproduce_handler(callback: CallbackQuery, state: FSMContext):
 
         await state.update_data(training_manager=training_manager)
 
-        corrent_training = training_manager.get_corrent_training()
+        current_training = training_manager.get_current_training()
 
-        if corrent_training:
-            text = display_info(corrent_training, training_manager)
+        if current_training:
+            text = display_info(current_training, training_manager)
         else:
             text = "Тест завершен!"
             await state.set_state(None)  # отмета ожидания ввода
@@ -126,11 +126,11 @@ async def answer_reproduce_handler(
                     text=text, parse_mode=ParseMode.MARKDOWN_V2
                 )
 
-    corrent_training = training_manager.get_corrent_training()
+    current_training = training_manager.get_current_training()
 
-    if corrent_training:
+    if current_training:
 
-        text = display_info(corrent_training, training_manager)
+        text = display_info(current_training, training_manager)
     else:
         text = "Тест завершен!"
         reply_markup = keyboards.training
@@ -143,13 +143,13 @@ async def answer_reproduce_handler(
 
 
 def display_info(
-    corrent_training: BaseTraining, training_manager: TrainingManager
+    current_training: BaseTraining, training_manager: TrainingManager
 ) -> str:
-    corrent_round = training_manager.round
+    current_round = training_manager.round
     length_training = training_manager.length_training
-    word = corrent_training.word
-    training = corrent_training.training
-    return f"""{corrent_round} / {length_training}
+    word = current_training.word
+    training = current_training.training
+    return f"""{current_round} / {length_training}
 
 {word.translation} ({word.part_of_speech})
 lvl: {training.lvl}"""

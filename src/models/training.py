@@ -34,23 +34,33 @@ class Training:
         return cls(pk=json_data["pk"], lvl=json_data["lvl"])
 
 
-class FalseSet: ...
-
+class FalseSet: 
+    def __init__(self, words: list[str]) -> None:
+        self.words = words
+    
+    @classmethod
+    def from_json(cls, false_set: list[str]) -> "FalseSet":
+        return cls(words=false_set)
 
 class BaseTraining:
-    def __init__(self, word: Word, training: Training) -> None:
+    def __init__(self, word: Word, training: Training, false_set: FalseSet | None) -> None:
         self.word = word
         self.training = training
+        self.false_set = false_set
 
     @classmethod
     def __from_json(cls, json_data: Dict[str, Any]) -> "BaseTraining":
         word_data = json_data["word"]
         training_data = json_data["training"]
-
+        false_set = json_data.get("false_set", None)
+        if false_set:
+            false_set = FalseSet.from_json(false_set)
+        else:
+            false_set = None
         word = Word.from_json(word_data)
         training = Training.from_json(training_data)
 
-        return cls(word=word, training=training)
+        return cls(word=word, training=training, false_set=false_set)
 
     @classmethod
     def make_obj_list(
@@ -68,14 +78,14 @@ class TrainingManager:
         self.round = 0
         self.length_training = len(objs)
 
-    def get_corrent_training(self) -> BaseTraining | None:
+    def get_current_training(self) -> BaseTraining | None:
         try:
-            corrent_training = self.objs[self.round]
+            current_training = self.objs[self.round]
             self.__increment_round()
         except IndexError:
             return None
 
-        return corrent_training
+        return current_training
 
     def get_previous_training(self) -> BaseTraining | None:
         if self.round == 0:
