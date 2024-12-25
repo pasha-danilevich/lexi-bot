@@ -157,7 +157,6 @@ lvl: {training.lvl}"""
 
 def check_answer(user_text: str, previous_training: BaseTraining) -> bool:
     word = previous_training.word
-    print(word.text, user_text.lower().strip())
     return word.text == user_text.lower().strip()
 
 
