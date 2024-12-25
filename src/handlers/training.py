@@ -33,8 +33,11 @@ async def training_handler(
     headers = await get_headers(access_token=access_token)
 
     if headers:
-        training_data = await get_response_data(headers, training_url)
-        training_info = await display_training_info(training_data)
+        json_data, status = await get_response_data(headers, training_url)
+        if not json_data:
+            await message_or_callback.answer(text=f"Ошибка: {status}")
+            return
+        training_info = await display_training_info(json_data)
 
         if isinstance(message_or_callback, Message):
             await message_or_callback.answer(

@@ -10,8 +10,8 @@ from aiogram.types import Message
 
 from config import DOMAIN
 from markup import buttons, keyboards
-from markup.message import NON_AUTHORIZETE
-from models import Word
+from markup.message import NON_AUTHORIZETE, TO_MANY_WORDS
+from models.word import Word
 from state import AddWord
 from utils import (
     escape_markdown_v2,
@@ -51,10 +51,19 @@ async def translate_word_handler(message: Message, state: FSMContext):
 
     state_data = await state.get_data()
     access_token = state_data.get("access_token", None)
-    user_text = message.text
+    user_text: str | None = message.text
+
+    if user_text:
+        if len(user_text.split(" ")) > 1:
+            await message.answer(
+                text=TO_MANY_WORDS, reply_markup=keyboards.word_added
+            )
+            await state.set_state(None)
+            return
 
     if not access_token:
         await message.answer(text=NON_AUTHORIZETE)
+        await state.set_state(None)
         return
 
     headers = await get_headers(access_token=access_token)

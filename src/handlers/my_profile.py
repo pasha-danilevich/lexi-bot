@@ -33,8 +33,12 @@ async def my_profile_handler(
     headers = await get_headers(access_token=access_token)
 
     if headers:
-        home_data = await get_response_data(headers, home_url)
-        profile_info = await display_profile_info(home_data)
+        json_data, status = await get_response_data(headers, home_url)
+        if not json_data:
+            await message_or_callback.answer(text=f"Ошибка {status}")
+            return
+
+        profile_info = await display_profile_info(json_data)
 
         if isinstance(message_or_callback, Message):
             await message_or_callback.answer(

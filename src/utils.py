@@ -58,15 +58,15 @@ def check_access_token(access_token: str):
         return False  # Неверный токен
 
 
-async def get_response_data(headers, url: str):
+async def get_response_data(headers, url: str) -> Tuple[Any, int]:
     async with aiohttp.ClientSession() as session:
         async with session.get(url, headers=headers) as response:
             if response.status == 200:
                 data = await response.json()
-                return data
+                return data, response.status
             else:
                 print(f"Ошибка: {response.status}")
-                return None
+                return None, response.status
 
 
 import aiohttp

@@ -7,7 +7,7 @@ from aiogram.types import (
 from aiogram.utils.keyboard import InlineKeyboardBuilder
 
 from markup import buttons
-from models import Translation
+from models.word import Translation
 
 
 translation_list_cd_data_pk_ = "translation_list_cd_data_pk_"
@@ -35,6 +35,14 @@ word_info = InlineKeyboardMarkup(
 
 word_added = InlineKeyboardMarkup(
     inline_keyboard=[[buttons.profile, buttons.found_another_word]]
+)
+
+training_text = InlineKeyboardMarkup(
+    inline_keyboard=[[buttons.cancel, buttons.submit_training]]
+)
+
+reproduce = InlineKeyboardMarkup(
+    inline_keyboard=[[buttons.cancel, buttons.next_word]]
 )
 
 

@@ -10,7 +10,7 @@ from aiogram.utils import markdown
 from markup import buttons, keyboards
 from config import DOMAIN
 from markup.message import NON_AUTHORIZETE
-from models import Translation, Word
+from models.word import Translation, Word
 from utils import get_headers, get_response_data_post
 
 

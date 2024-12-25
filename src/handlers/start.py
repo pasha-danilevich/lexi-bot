@@ -8,7 +8,7 @@ from aiogram.types import Message
 
 from markup import message as text_message
 from config import DOMAIN
-from models import User
+from models.user import User
 from utils import check_access_token
 
 

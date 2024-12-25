@@ -14,3 +14,7 @@ class AddWord(StatesGroup):
 
 class WordInstanse(StatesGroup):
     word_instance = State()
+
+
+class Reproduce(StatesGroup):
+    text = State()
