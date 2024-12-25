@@ -17,7 +17,7 @@ cancel = InlineKeyboardButton(
 )
 
 next_word = InlineKeyboardButton(
-    text="След.",
+    text="Пропустить",
     callback_data=next_cb_data,
 )
 
@@ -50,11 +50,11 @@ reproduce = InlineKeyboardButton(
 )
 
 recognize = InlineKeyboardButton(
-    text="Тест с выбором ответа",
+    text="Выбор ответа",
     callback_data=recognize_test_cb_data,
 )
 
 submit_training = InlineKeyboardButton(
-    text="Ok. Продолжить",
+    text="Продолжить",
     callback_data=submit_training_cb_data,
 )

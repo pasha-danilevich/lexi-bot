@@ -66,9 +66,9 @@ async def display_training_info(data) -> str:
     # Форматирование строки для вывода
     training_info = (
         f"Необходимо повторить {markdown.bold(words_to_repeat)} {markdown.bold('слов')} \n"
-        f"Тест с выбором ответа: "
+        f"Выбор ответа: "
         f"{markdown.bold(choice_test_words)}\n"
-        f"Тест на узнаваемость: "
+        f"Письменный тест: "
         f"{markdown.bold(reproduce_test_words)}\n"
     )
     return training_info

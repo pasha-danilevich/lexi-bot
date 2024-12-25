@@ -91,6 +91,25 @@ async def get_response_data_post(
             return None, 500  # в случае ошибки запроса
 
 
+async def get_response_data_patch(
+    headers: dict, url: str, data: dict
+) -> Tuple[Any, int]:
+    async with aiohttp.ClientSession() as session:
+        try:
+            async with session.patch(
+                url, headers=headers, json=data
+            ) as response:
+                if response.status in [200, 201]:
+
+                    return "", response.status
+                else:
+                    print(f"Ошибка: {response.status}")
+                    return None, response.status
+        except aiohttp.ClientError as e:
+            print(f"Ошибка при выполнении запроса: {e}")
+            return None, 500  # в случае ошибки запроса
+
+
 async def get_headers(access_token: str | Any | None) -> dict[str, str] | None:
     if access_token is not None:
         headers = {"Authorization": f"Beare {access_token}"}

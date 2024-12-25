@@ -16,5 +16,9 @@ class WordInstanse(StatesGroup):
     word_instance = State()
 
 
+class TrainingManager(StatesGroup):
+    training_manager = State()
+
+
 class Reproduce(StatesGroup):
     text = State()

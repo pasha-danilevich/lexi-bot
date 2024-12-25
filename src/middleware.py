@@ -5,7 +5,7 @@ from aiogram import BaseMiddleware
 from aiogram.types import Message
 
 from markup.message import NON_AUTHORIZETE
-from models import User
+from models.user import User
 
 
 class CounterMiddleware(BaseMiddleware):
