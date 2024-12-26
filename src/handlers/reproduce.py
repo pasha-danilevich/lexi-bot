@@ -20,6 +20,7 @@ from utils import (
     get_response_data,
     get_response_data_patch,
     get_response_data_post,
+    print_with_location,
 )
 
 
@@ -34,11 +35,11 @@ async def reproduce_text_handler(callback: CallbackQuery, state: FSMContext):
 
     await callback.message.answer(  # type: ignore
         text=REPRODUCE_TEXT,
-        reply_markup=keyboards.training_text,
+        reply_markup=keyboards.training_text_reproduce,
     )
 
 
-@router.callback_query(F.data == buttons.submit_training_cb_data)
+@router.callback_query(F.data == buttons.submit_reproduce_cb_data)
 async def reproduce_handler(callback: CallbackQuery, state: FSMContext):
 
     state_data = await state.get_data()
@@ -86,7 +87,7 @@ async def reproduce_handler(callback: CallbackQuery, state: FSMContext):
 
 
 @router.message(Reproduce.text)
-@router.callback_query(F.data == buttons.next_cb_data)
+@router.callback_query(F.data == buttons.next_reproduce_cb_data)
 async def answer_reproduce_handler(
     message: Message | types.CallbackQuery, state: FSMContext
 ):
@@ -139,6 +140,7 @@ async def answer_reproduce_handler(
     await message.answer(
         text=f"{text}",
         reply_markup=reply_markup,
+        parse_mode=ParseMode.MARKDOWN_V2,
     )
 
 
@@ -148,11 +150,14 @@ def display_info(
     current_round = training_manager.round
     length_training = training_manager.length_training
     word = current_training.word
+    tip = word.text
     training = current_training.training
-    return f"""{current_round} / {length_training}
+    wihth_spase = "                                                 "
+    return f"""
+{current_round} / {length_training} {wihth_spase} lvl: {training.lvl}
 
 {word.translation} ({word.part_of_speech})
-lvl: {training.lvl}"""
+    """
 
 
 def check_answer(user_text: str, previous_training: BaseTraining) -> bool:

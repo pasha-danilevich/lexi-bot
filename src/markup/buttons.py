@@ -8,17 +8,24 @@ select_word_to_add_cd_data = "select_word_to_add_cd_data"
 training_cb_data = "training_cb_data"
 recognize_test_cb_data = "recognize_test_cb_data"
 reproduce_test_cb_data = "reproduce_test_cb_data"
-submit_training_cb_data = "submit_training_cb_data"
-next_cb_data = "next_cb_data"
+submit_recognize_cb_data = "submit_recognize_cb_data"
+submit_reproduce_cb_data = "submit_reproduce_cb_data"
+next_recognize_cb_data = "next_recognize_cb_data"
+next_reproduce_cb_data = "next_reproduce_cb_data"
+
 
 cancel = InlineKeyboardButton(
     text="Отмена",
     callback_data=delete_cb_data,
 )
 
-next_word = InlineKeyboardButton(
+next_word_recognize = InlineKeyboardButton(
     text="Пропустить",
-    callback_data=next_cb_data,
+    callback_data=next_recognize_cb_data,
+)
+next_word_reproduce = InlineKeyboardButton(
+    text="Пропустить",
+    callback_data=next_reproduce_cb_data,
 )
 
 
@@ -54,7 +61,11 @@ recognize = InlineKeyboardButton(
     callback_data=recognize_test_cb_data,
 )
 
-submit_training = InlineKeyboardButton(
+submit_recognize = InlineKeyboardButton(
     text="Продолжить",
-    callback_data=submit_training_cb_data,
+    callback_data=submit_recognize_cb_data,
+)
+submit_reproduce = InlineKeyboardButton(
+    text="Продолжить",
+    callback_data=submit_reproduce_cb_data,
 )

@@ -1,8 +1,10 @@
-# src/database.py
-
 import os
 import sqlite3
-from typing import Any
+from collections import namedtuple
+
+from utils import print_with_location
+
+UserTuple = namedtuple("User", ["id", "tg_user_id", "access_token"])
 
 
 class Database:
@@ -30,7 +32,7 @@ class Database:
         )
         self.connection.commit()
 
-    def add_user(self, tg_user_id: int, access_token: str):
+    def add_user(self, tg_user_id: int, access_token: str | None):
         """Добавление нового пользователя в базу данных."""
         try:
             self.cursor.execute(
@@ -41,48 +43,54 @@ class Database:
             )
             self.connection.commit()
         except sqlite3.IntegrityError:
-            print("Пользователь уже существует.")
+            print_with_location("Пользователь уже существует.")
 
-    def get_user(self, tg_user_id: int) -> tuple | None:
+    def get_user(self, tg_user_id: int) -> UserTuple | None:
         """Получение информации о пользователе по tg_user_id."""
         self.cursor.execute(
             """
             SELECT * FROM users WHERE tg_user_id = ?
-        """,
+            """,
             (tg_user_id,),
         )
-        return self.cursor.fetchone()
+
+        result = self.cursor.fetchone()
+
+        if result:
+            return UserTuple(*result)
+        return None
 
     def get_all_users(self):
         """Получение информации о всех пользователях."""
         self.cursor.execute(
             """
             SELECT * FROM users
-        """
+            """
         )
-        return (
-            self.cursor.fetchall()
-        )  # Используем fetchall для получения всех записей
+
+        User = namedtuple("User", ["id", "tg_user_id", "access_token"])
+        return [
+            User(*row) for row in self.cursor.fetchall()
+        ]  # Используем fetchall для получения всех записей
 
     def edit_access_token(
         self, tg_user_id: int, new_access_token: str
     ) -> bool:
         """Обновление access_token для указанного пользователя.
         True - Обновлен
-        Fasle - Не обновлен
+        False - Не обновлен
         """
         self.cursor.execute(
             """
             UPDATE users SET access_token = ? WHERE tg_user_id = ?
-        """,
+            """,
             (new_access_token, tg_user_id),
         )
+
         self.connection.commit()
+
         # Проверяем количество строк, которые были обновлены
-        if self.cursor.rowcount == 0:
-            return False
-        else:
-            return True
+        return self.cursor.rowcount > 0
 
     def close(self):
         """Закрытие соединения с базой данных."""

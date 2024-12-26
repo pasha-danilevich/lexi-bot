@@ -2,6 +2,7 @@
 
 
 from datetime import datetime, timezone
+import inspect
 from typing import Any, Tuple
 from aiogram.types import Message
 import aiohttp
@@ -9,6 +10,22 @@ import jwt
 
 # from database import Database
 # from models import User
+
+
+def print_with_location(message: str):
+    # Получаем информацию о текущем кадре
+    frame = inspect.currentframe()
+
+    # Получаем информацию о вызывающем кадре
+    if frame:
+        caller_frame = frame.f_back
+        if caller_frame:
+            # Получаем имя файла и номер строки
+            filename = caller_frame.f_code.co_filename
+            line_number = caller_frame.f_lineno
+
+    # Формируем сообщение с указанием файла и строки
+    print(f"{message} (File: {filename}, line {line_number})")
 
 
 def format_message(text: str, format_type: str) -> str:
@@ -65,7 +82,7 @@ async def get_response_data(headers, url: str) -> Tuple[Any, int]:
                 data = await response.json()
                 return data, response.status
             else:
-                print(f"Ошибка: {response.status}")
+                print_with_location(f"Ошибка: {response.status}")
                 return None, response.status
 
 
@@ -84,10 +101,10 @@ async def get_response_data_post(
                     data = await response.json()
                     return data, response.status
                 else:
-                    print(f"Ошибка: {response.status}")
+                    print_with_location(f"Ошибка: {response.status}")
                     return None, response.status
         except aiohttp.ClientError as e:
-            print(f"Ошибка при выполнении запроса: {e}")
+            print_with_location(f"Ошибка при выполнении запроса: {e}")
             return None, 500  # в случае ошибки запроса
 
 
@@ -103,10 +120,10 @@ async def get_response_data_patch(
 
                     return "", response.status
                 else:
-                    print(f"Ошибка: {response.status}")
+                    print_with_location(f"Ошибка: {response.status}")
                     return None, response.status
         except aiohttp.ClientError as e:
-            print(f"Ошибка при выполнении запроса: {e}")
+            print_with_location(f"Ошибка при выполнении запроса: {e}")
             return None, 500  # в случае ошибки запроса
 
 

@@ -1,3 +1,4 @@
+import random
 from typing import List, Dict, Any
 
 
@@ -34,16 +35,29 @@ class Training:
         return cls(pk=json_data["pk"], lvl=json_data["lvl"])
 
 
-class FalseSet: 
+class FalseSet:
     def __init__(self, words: list[str]) -> None:
         self.words = words
-    
+
     @classmethod
     def from_json(cls, false_set: list[str]) -> "FalseSet":
         return cls(words=false_set)
 
+    def add_correct_word(self, correct_word: str):
+        self.words.append(correct_word)
+
+    def get_all_random_false_set(self) -> list[str]:
+        random.shuffle(self.words)
+        return self.words
+
+    def __str__(self) -> str:
+        return f"{self.words}"
+
+
 class BaseTraining:
-    def __init__(self, word: Word, training: Training, false_set: FalseSet | None) -> None:
+    def __init__(
+        self, word: Word, training: Training, false_set: FalseSet | None
+    ) -> None:
         self.word = word
         self.training = training
         self.false_set = false_set
@@ -53,12 +67,15 @@ class BaseTraining:
         word_data = json_data["word"]
         training_data = json_data["training"]
         false_set = json_data.get("false_set", None)
-        if false_set:
-            false_set = FalseSet.from_json(false_set)
-        else:
-            false_set = None
+
         word = Word.from_json(word_data)
         training = Training.from_json(training_data)
+
+        if false_set:
+            false_set = FalseSet.from_json(false_set)
+            false_set.add_correct_word(correct_word=word.translation)
+        else:
+            false_set = None
 
         return cls(word=word, training=training, false_set=false_set)
 
@@ -69,7 +86,7 @@ class BaseTraining:
         return [BaseTraining.__from_json(item) for item in json_data]
 
     def __str__(self) -> str:
-        return f"{self.word.text} - {self.word.translation}"
+        return f"{self.word.text} - {self.word.translation} - {self.false_set}"
 
 
 class TrainingManager:

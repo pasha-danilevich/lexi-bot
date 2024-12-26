@@ -6,6 +6,7 @@ from aiogram.types import Message
 
 from markup.message import NON_AUTHORIZETE
 from models.user import User
+from utils import print_with_location
 
 
 class CounterMiddleware(BaseMiddleware):
@@ -24,17 +25,23 @@ class CounterMiddleware(BaseMiddleware):
 
         state_data = await state.get_data()
         access_token = state_data.get("access_token", None)
-
+        print_with_location('state token' if access_token else 'not state token')
         if not access_token:
+            from main import db
 
-            user = User(message=message)
+            user_id = message.from_user.id  # type: ignore
 
-            if user.is_correct_access_token():
-                accest_token_from_user = user.get_access_token()
-                access_token = await state.update_data(
-                    access_token=accest_token_from_user
-                )
-            else:
-                access_token = await state.update_data(access_token=None)
+            user_tuple = db.get_user(tg_user_id=user_id)
 
+            if user_tuple:
+                user = User(message=message, user=user_tuple)
+                if user.is_correct_access_token():
+                    accest_token_from_user = user.get_access_token()
+                    access_token = await state.update_data(
+                        access_token=accest_token_from_user
+                    )
+                    print_with_location('db token' if access_token else 'not db token')
+                else:
+                    access_token = await state.update_data(access_token=None)
+        
         return await handler(event, data)
