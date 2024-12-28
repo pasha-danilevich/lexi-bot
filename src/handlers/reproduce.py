@@ -1,3 +1,4 @@
+import random
 from typing import Any, cast
 
 from aiogram import types
@@ -81,7 +82,7 @@ async def reproduce_handler(callback: CallbackQuery, state: FSMContext):
 
         await message.answer(
             text=text,
-            # parse_mode=ParseMode.MARKDOWN_V2,
+            parse_mode=ParseMode.HTML,
             reply_markup=keyboards.reproduce,
         )
 
@@ -138,9 +139,9 @@ async def answer_reproduce_handler(
         await state.set_state(None)  # отмета ожидания ввода
 
     await message.answer(
-        text=f"{text}",
+        text=text,
         reply_markup=reply_markup,
-        parse_mode=ParseMode.MARKDOWN_V2,
+        parse_mode=ParseMode.HTML,
     )
 
 
@@ -150,14 +151,18 @@ def display_info(
     current_round = training_manager.round
     length_training = training_manager.length_training
     word = current_training.word
-    tip = word.text
+    list_letters = list(word.text)
+    random.shuffle(list_letters)
+    tip = ''.join(list_letters)
     training = current_training.training
     wihth_spase = "                                                 "
     return f"""
 {current_round} / {length_training} {wihth_spase} lvl: {training.lvl}
 
 {word.translation} ({word.part_of_speech})
-    """
+<span class="tg-spoiler">{tip}</span>
+
+"""
 
 
 def check_answer(user_text: str, previous_training: BaseTraining) -> bool:
