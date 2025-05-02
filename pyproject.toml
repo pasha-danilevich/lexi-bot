@@ -1,0 +1,45 @@
+[project]
+name = "lexi-bot"
+version = "0.1.0"
+description = ""
+authors = [
+    { name = "common", email = "common@mail.ru" }
+]
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+### Production-зависимости ###
+[tool.poetry.dependencies]
+python = "^3.11"
+aiogram = "^3.19.0"
+pydantic-settings = "^2.8.1"
+loguru = "^0.7.3"
+tortoise-orm = "^0.25.0"
+aiogram-dialog = "^2.3.1"
+aerich = "^0.8.2"
+asyncpg = "^0.30.0"
+pydantic = {extras = ["email"], version = "^2.11.3"}
+
+
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.9.1"
+isort = "^6.0.1"
+pre-commit = "^4.2.0"
+faker = "^37.1.0"
+
+### Настройки инструментов ###
+[tool.poetry]
+package-mode = false
+
+[tool.black]
+line-length = 88
+skip-string-normalization = true
+preview = true
+
+[tool.isort]
+line_length = 88
+multi_line_output = 3
+include_trailing_comma = true
