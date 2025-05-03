@@ -10,5 +10,7 @@ class IWordService(IUserScoped):
         raise NotImplementedError
 
     @abstractmethod
-    async def get_all_words(self, limit: int, offset: int) -> list[Word]:
+    async def get_all_words(
+        self, collection_id: int, limit: int, offset: int
+    ) -> list[Word]:
         raise NotImplementedError

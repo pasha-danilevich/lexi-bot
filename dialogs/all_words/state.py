@@ -1,5 +1,5 @@
 from aiogram.fsm.state import State, StatesGroup
 
 
-class AllWords(StatesGroup):
+class AllWordSG(StatesGroup):
     all_words = State()

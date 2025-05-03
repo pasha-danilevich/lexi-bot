@@ -13,8 +13,11 @@ class WordMockService(IWordService, UserScoped):
         user_id = self.user.id
         return Word(word_id=faker.random_int(), word=faker.word())
 
-    async def get_all_words(self, limit: int, offset: int) -> list[Word]:
+    async def get_all_words(
+        self, collection_id: int, limit: int, offset: int
+    ) -> list[Word]:
         _ = self.user.id
+        _ = collection_id  # нужна фильтрация по коллекциям
 
         words = [Word(word_id=faker.random_int(), word=faker.word()) for i in range(30)]
         return words[offset : offset + limit]
@@ -24,7 +27,7 @@ async def run():
     user = User(id=1237)
     serv = WordMockService(user=user)
     print(await serv.get_word())
-    print(await serv.get_all_words(limit=10, offset=10))
+    print(await serv.get_all_words(collection_id=123, limit=10, offset=10))
 
 
 if __name__ == '__main__':
