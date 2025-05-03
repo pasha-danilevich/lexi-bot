@@ -10,4 +10,5 @@ async def get_msg(**kwargs) -> DataDict:
     text = ' \n'.join(words_text)
     return {
         'word_list': text,
+        'word': dto.search_word,
     }

@@ -7,3 +7,4 @@ from services.word.schemas import Word
 
 class AllWordDTO(BaseModel):
     word_list: Optional[list[Word]] = None
+    search_word: Optional[str] = None

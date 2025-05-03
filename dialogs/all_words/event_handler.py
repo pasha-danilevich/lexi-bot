@@ -1,4 +1,6 @@
+from aiogram.types import Message
 from aiogram_dialog import Data
+from aiogram_dialog.widgets.input import ManagedTextInput
 
 from dialogs.all_words.dto import AllWordDTO
 from dialogs.all_words.interface import DialogManager
@@ -28,3 +30,11 @@ async def process_collection_result(
             word_list=words,
         )
     )
+
+
+async def on_input_search_word(
+    _: Message, __: ManagedTextInput, manager: DialogManager, text: str
+):
+    manager.dto.search_word = text
+    # TODO: Пытаемся найти слово у пользователя
+    await manager.next()
