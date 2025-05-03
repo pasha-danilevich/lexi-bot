@@ -1,13 +1,13 @@
 from dialog_manager.manager import CustomDialogManagerImpl
-from dialogs.home.dto import HomeDTO
-from services.statistic.interface import IStatistic
+from dialogs.all_words.dto import AllWordDTO
+from services.word.service import WordService
 
 
 class DialogManager(CustomDialogManagerImpl):
     @property
-    def service(self) -> IStatistic:
+    def service(self) -> WordService:
         return super().service
 
     @property
-    def dto(self) -> HomeDTO:
+    def dto(self) -> AllWordDTO:
         return super().dto

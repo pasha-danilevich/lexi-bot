@@ -329,6 +329,9 @@
         <mxCell id="VLoWf1Fk5brx7wbOFFUL-5" value="new_word" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" parent="1" vertex="1">
           <mxGeometry x="-640" y="-70" width="120" height="30" as="geometry" />
         </mxCell>
+        <mxCell id="sMIV3Fg081qzamQ6dso8-1" value="Text" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="-565" y="-872" width="50" height="30" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>

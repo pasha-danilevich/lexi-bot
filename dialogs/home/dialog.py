@@ -2,6 +2,7 @@ from aiogram_dialog import Dialog, Window
 from aiogram_dialog.widgets.kbd import Row, Start
 from aiogram_dialog.widgets.text import Const, Format
 
+from ..all_words.state import AllWords
 from . import event_handler, getters
 from .state import Home
 
@@ -10,7 +11,7 @@ dialog = Dialog(
         Const("Привет!"),
         Format("Всего слов: {total_words}"),
         Row(
-            Start(Const("Все слова"), state=..., id='all_words'),
+            Start(Const("Все слова"), state=AllWords.all_words, id='all_words'),
             Start(Const("Статистика"), state=..., id='statistic'),
         ),
         Start(Const("Повторять"), state=..., id='training'),
