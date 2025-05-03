@@ -1,6 +1,6 @@
 # .pre-commit-config.yaml
 # данные действия надо провести локально, для каждого .git
-# 1. install pre-commit
+# 1. install pre-commit to venv
 # 2. $ pre-commit install (установить настройки в .git/hooks/pre-commit)
 #    или poetry run pre-commit install (если команды pre-commit install не существует)
 
