@@ -8,9 +8,9 @@ from services.word.schemas import MistakeWord, Word
 
 class StatisticMockService(IStatistic, UserScoped):
     words_db = [
-        Word(word_id=13342345, word="hello"),
-        Word(word_id=45345, word="home"),
-        Word(word_id=657567, word="acquire"),
+        Word(word_id=13342345, text="hello"),
+        Word(word_id=45345, text="home"),
+        Word(word_id=657567, text="acquire"),
     ]
     mock_db = {
         "user_id": 850472798,

@@ -37,6 +37,7 @@ dialog = Dialog(
         Button(
             Const("Найти в поиске"),
             id="new_word",
+            #     TODO: Start(AddWordSG)
         ),
         Row(
             buttons.HOME,

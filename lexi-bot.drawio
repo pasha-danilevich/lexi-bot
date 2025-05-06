@@ -337,7 +337,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="JQrtzYpsoV1WHdFjCpuo" name="new_word">
-    <mxGraphModel dx="3166" dy="1849" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="none" math="0" shadow="0">
+    <mxGraphModel dx="3814" dy="2140" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="none" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -398,7 +398,7 @@
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="j_BJSgnoDcIw7tMicrgs-5" value="" style="edgeStyle=elbowEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="uxou3r7opnvdwxuHgbUS-1" target="j_BJSgnoDcIw7tMicrgs-4" edge="1">
+        <mxCell id="j_BJSgnoDcIw7tMicrgs-5" value="" style="edgeStyle=elbowEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;sketch=1;curveFitting=1;jiggle=2;" parent="1" source="uxou3r7opnvdwxuHgbUS-1" target="j_BJSgnoDcIw7tMicrgs-4" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="j_BJSgnoDcIw7tMicrgs-6" value="Да" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="j_BJSgnoDcIw7tMicrgs-5" vertex="1" connectable="0">
@@ -406,19 +406,19 @@
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="uxou3r7opnvdwxuHgbUS-1" value="Больше одного слова" style="rhombus;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+        <mxCell id="uxou3r7opnvdwxuHgbUS-1" value="Больше одного слова" style="rhombus;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;" parent="1" vertex="1">
           <mxGeometry x="-540" y="-570" width="110" height="110" as="geometry" />
         </mxCell>
         <mxCell id="j_BJSgnoDcIw7tMicrgs-26" value="Ввести еще" style="rounded=1;whiteSpace=wrap;html=1;spacingLeft=0;align=center;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" parent="1" vertex="1">
-          <mxGeometry x="-1175" y="460" width="140" height="30" as="geometry" />
+          <mxGeometry x="-1170" y="460" width="140" height="30" as="geometry" />
         </mxCell>
         <mxCell id="j_BJSgnoDcIw7tMicrgs-29" value="new_word" style="shape=loopLimit;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="-1155" y="530" width="100" height="30" as="geometry" />
+          <mxGeometry x="-1150" y="530" width="100" height="30" as="geometry" />
         </mxCell>
         <mxCell id="j_BJSgnoDcIw7tMicrgs-30" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="j_BJSgnoDcIw7tMicrgs-26" target="j_BJSgnoDcIw7tMicrgs-29" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="6yabi1wyCbyPhU_rt80o-2" value="new_word" style="shape=loopLimit;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+        <mxCell id="6yabi1wyCbyPhU_rt80o-2" value="add_word" style="shape=loopLimit;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="-480" y="-780" width="100" height="30" as="geometry" />
         </mxCell>
         <mxCell id="6yabi1wyCbyPhU_rt80o-3" value="На главную" style="rounded=1;whiteSpace=wrap;html=1;spacingLeft=0;align=center;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" parent="1" vertex="1">
@@ -428,56 +428,56 @@
           <mxGeometry x="-600" y="-750" width="230" height="60" as="geometry" />
         </mxCell>
         <mxCell id="j_BJSgnoDcIw7tMicrgs-10" value="На главную" style="rounded=1;whiteSpace=wrap;html=1;spacingLeft=0;align=center;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;sketch=1;curveFitting=1;jiggle=2;" parent="1" vertex="1">
-          <mxGeometry x="310" y="-595" width="110" height="30" as="geometry" />
+          <mxGeometry x="310" y="-590" width="110" height="30" as="geometry" />
         </mxCell>
         <mxCell id="j_BJSgnoDcIw7tMicrgs-16" value="Ввести еще" style="rounded=1;whiteSpace=wrap;html=1;spacingLeft=0;align=center;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;sketch=1;curveFitting=1;jiggle=2;" parent="1" vertex="1">
-          <mxGeometry x="200" y="-595" width="100" height="30" as="geometry" />
+          <mxGeometry x="200" y="-590" width="100" height="30" as="geometry" />
         </mxCell>
         <mxCell id="UllfKumYEmRsQ7qDKzCB-60" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;sketch=1;curveFitting=1;jiggle=2;" parent="1" source="j_BJSgnoDcIw7tMicrgs-8" target="UllfKumYEmRsQ7qDKzCB-58" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="j_BJSgnoDcIw7tMicrgs-8" value="X слов предложении - X кнопок" style="rounded=1;whiteSpace=wrap;html=1;spacingLeft=0;align=center;fillColor=#dae8fc;strokeColor=#6c8ebf;sketch=1;curveFitting=1;jiggle=2;" parent="1" vertex="1">
-          <mxGeometry x="200" y="-635" width="220" height="30" as="geometry" />
+          <mxGeometry x="200" y="-630" width="220" height="30" as="geometry" />
         </mxCell>
         <mxCell id="j_BJSgnoDcIw7tMicrgs-11" value="home" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;sketch=1;curveFitting=1;jiggle=2;" parent="1" vertex="1">
-          <mxGeometry x="310" y="-515" width="120" height="30" as="geometry" />
+          <mxGeometry x="310" y="-510" width="120" height="30" as="geometry" />
         </mxCell>
         <mxCell id="j_BJSgnoDcIw7tMicrgs-12" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;sketch=1;curveFitting=1;jiggle=2;" parent="1" source="j_BJSgnoDcIw7tMicrgs-10" target="j_BJSgnoDcIw7tMicrgs-11" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="j_BJSgnoDcIw7tMicrgs-17" value="new_word" style="shape=loopLimit;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;" parent="1" vertex="1">
-          <mxGeometry x="200" y="-545" width="100" height="30" as="geometry" />
+          <mxGeometry x="200" y="-540" width="100" height="30" as="geometry" />
         </mxCell>
         <mxCell id="j_BJSgnoDcIw7tMicrgs-18" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;sketch=1;curveFitting=1;jiggle=2;" parent="1" source="j_BJSgnoDcIw7tMicrgs-16" target="j_BJSgnoDcIw7tMicrgs-17" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="j_BJSgnoDcIw7tMicrgs-4" value="{&lt;span style=&quot;text-align: center; white-space-collapse: preserve;&quot;&gt;sentence}&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;spacingLeft=20;align=left;fillColor=#dae8fc;strokeColor=#6c8ebf;sketch=1;curveFitting=1;jiggle=2;" parent="1" vertex="1">
-          <mxGeometry x="200" y="-745" width="220" height="60" as="geometry" />
+          <mxGeometry x="200" y="-740" width="220" height="60" as="geometry" />
         </mxCell>
         <object label="word_card" id="HQ_Bx1bDzPAB6yZkEubi-2">
-          <mxCell style="shape=loopLimit;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxCell style="shape=loopLimit;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
             <mxGeometry x="-650" y="-190" width="100" height="30" as="geometry" />
           </mxCell>
         </object>
         <mxCell id="HQ_Bx1bDzPAB6yZkEubi-4" value="{word} - {transcription}&lt;div&gt;{translation}&lt;/div&gt;&lt;div&gt;{transcription}&lt;/div&gt;&lt;div&gt;{synonim}&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;spacingLeft=20;align=left;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
           <mxGeometry x="-760" y="-160" width="220" height="90" as="geometry" />
         </mxCell>
-        <mxCell id="HQ_Bx1bDzPAB6yZkEubi-7" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
+        <mxCell id="HQ_Bx1bDzPAB6yZkEubi-7" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;sketch=1;curveFitting=1;jiggle=2;" parent="1" vertex="1">
           <mxGeometry x="-760" y="-60" width="40" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="HQ_Bx1bDzPAB6yZkEubi-8" value="Произношение" style="rounded=1;whiteSpace=wrap;html=1;spacingLeft=0;align=center;" parent="1" vertex="1">
+        <mxCell id="HQ_Bx1bDzPAB6yZkEubi-8" value="Произношение" style="rounded=1;whiteSpace=wrap;html=1;spacingLeft=0;align=center;sketch=1;curveFitting=1;jiggle=2;" parent="1" vertex="1">
           <mxGeometry x="-710" y="-50" width="170" height="30" as="geometry" />
         </mxCell>
         <mxCell id="j_BJSgnoDcIw7tMicrgs-2" value="&lt;span style=&quot;white-space-collapse: preserve;&quot; data-src-align=&quot;0:11&quot; class=&quot;aNeGP0gI0B9AV8JaHPyH&quot;&gt;sentence&lt;/span&gt;" style="shape=loopLimit;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;" parent="1" vertex="1">
-          <mxGeometry x="310" y="-765" width="90" height="20" as="geometry" />
+          <mxGeometry x="310" y="-760" width="90" height="20" as="geometry" />
         </mxCell>
         <mxCell id="j_BJSgnoDcIw7tMicrgs-3" value="{word}" style="rounded=1;whiteSpace=wrap;html=1;spacingLeft=0;align=center;sketch=1;curveFitting=1;jiggle=2;" parent="1" vertex="1">
-          <mxGeometry x="200" y="-675" width="110" height="30" as="geometry" />
+          <mxGeometry x="200" y="-670" width="110" height="30" as="geometry" />
         </mxCell>
         <mxCell id="j_BJSgnoDcIw7tMicrgs-7" value="{word}" style="rounded=1;whiteSpace=wrap;html=1;spacingLeft=0;align=center;sketch=1;curveFitting=1;jiggle=2;" parent="1" vertex="1">
-          <mxGeometry x="320" y="-675" width="100" height="30" as="geometry" />
+          <mxGeometry x="320" y="-670" width="100" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="UllfKumYEmRsQ7qDKzCB-1" value="Слово необходимо поместить в коллекцию." style="rounded=1;whiteSpace=wrap;html=1;spacingLeft=0;align=left;fillColor=#dae8fc;strokeColor=#6c8ebf;spacing=10;" parent="1" vertex="1">
+        <mxCell id="UllfKumYEmRsQ7qDKzCB-1" value="Слово необходимо поместить в коллекцию." style="rounded=1;whiteSpace=wrap;html=1;spacingLeft=0;align=left;spacing=10;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
           <mxGeometry x="-1310" y="-150" width="270" height="60" as="geometry" />
         </mxCell>
         <mxCell id="UllfKumYEmRsQ7qDKzCB-2" value="&lt;span style=&quot;white-space-collapse: preserve;&quot; data-src-align=&quot;0:11&quot; class=&quot;aNeGP0gI0B9AV8JaHPyH&quot;&gt;select_collection&lt;/span&gt;" style="shape=loopLimit;whiteSpace=wrap;html=1;" parent="1" vertex="1">
@@ -511,35 +511,35 @@
           <mxGeometry x="-540" y="-390" width="110" height="110" as="geometry" />
         </mxCell>
         <mxCell id="UllfKumYEmRsQ7qDKzCB-24" value="На главную" style="rounded=1;whiteSpace=wrap;html=1;spacingLeft=0;align=center;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" parent="1" vertex="1">
-          <mxGeometry x="-180" y="-120" width="110" height="30" as="geometry" />
+          <mxGeometry x="-290" y="-120" width="110" height="30" as="geometry" />
         </mxCell>
         <mxCell id="UllfKumYEmRsQ7qDKzCB-25" value="Ввести еще" style="rounded=1;whiteSpace=wrap;html=1;spacingLeft=0;align=center;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" parent="1" vertex="1">
-          <mxGeometry x="-290" y="-120" width="100" height="30" as="geometry" />
+          <mxGeometry x="-170" y="-120" width="100" height="30" as="geometry" />
         </mxCell>
         <mxCell id="UllfKumYEmRsQ7qDKzCB-26" value="home" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" parent="1" vertex="1">
-          <mxGeometry x="-180" y="-30" width="120" height="30" as="geometry" />
+          <mxGeometry x="-295" y="-30" width="120" height="30" as="geometry" />
         </mxCell>
         <mxCell id="UllfKumYEmRsQ7qDKzCB-27" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="UllfKumYEmRsQ7qDKzCB-24" target="UllfKumYEmRsQ7qDKzCB-26" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="UllfKumYEmRsQ7qDKzCB-28" value="new_word" style="shape=loopLimit;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="-290" y="-70" width="100" height="30" as="geometry" />
+          <mxGeometry x="-170" y="-70" width="100" height="30" as="geometry" />
         </mxCell>
         <mxCell id="UllfKumYEmRsQ7qDKzCB-29" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="UllfKumYEmRsQ7qDKzCB-25" target="UllfKumYEmRsQ7qDKzCB-28" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <object label="word_card" id="UllfKumYEmRsQ7qDKzCB-30">
-          <mxCell style="shape=loopLimit;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-            <mxGeometry x="-190" y="-460" width="100" height="20" as="geometry" />
+        <object label="user_word_card" id="UllfKumYEmRsQ7qDKzCB-30">
+          <mxCell style="shape=loopLimit;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
+            <mxGeometry x="-240" y="-460" width="150" height="20" as="geometry" />
           </mxCell>
         </object>
         <mxCell id="UllfKumYEmRsQ7qDKzCB-31" value="&lt;div&gt;{word} - {transcription} - {collection}&lt;/div&gt;&lt;div&gt;{lvl}&lt;/div&gt;&lt;div&gt;{asosiation}&lt;/div&gt;&lt;div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;{translation}&lt;/div&gt;&lt;div&gt;{transcription}&lt;/div&gt;&lt;div&gt;{synonim}&lt;/div&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;spacingLeft=20;align=left;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
           <mxGeometry x="-290" y="-440" width="220" height="140" as="geometry" />
         </mxCell>
-        <mxCell id="UllfKumYEmRsQ7qDKzCB-32" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
+        <mxCell id="UllfKumYEmRsQ7qDKzCB-32" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;sketch=1;curveFitting=1;jiggle=2;" parent="1" vertex="1">
           <mxGeometry x="-290" y="-290" width="40" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="UllfKumYEmRsQ7qDKzCB-33" value="Произношение" style="rounded=1;whiteSpace=wrap;html=1;spacingLeft=0;align=center;" parent="1" vertex="1">
+        <mxCell id="UllfKumYEmRsQ7qDKzCB-33" value="Произношение" style="rounded=1;whiteSpace=wrap;html=1;spacingLeft=0;align=center;sketch=1;curveFitting=1;jiggle=2;" parent="1" vertex="1">
           <mxGeometry x="-240" y="-280" width="170" height="30" as="geometry" />
         </mxCell>
         <mxCell id="UllfKumYEmRsQ7qDKzCB-118" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="UllfKumYEmRsQ7qDKzCB-34" target="UllfKumYEmRsQ7qDKzCB-119" edge="1">
@@ -567,7 +567,7 @@
         <mxCell id="UllfKumYEmRsQ7qDKzCB-38" value="Придумайте ассоциацию:" style="rounded=1;whiteSpace=wrap;html=1;spacingLeft=0;align=left;spacing=10;" parent="1" vertex="1">
           <mxGeometry x="-1310" y="180" width="270" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="UllfKumYEmRsQ7qDKzCB-39" value="&lt;span style=&quot;white-space-collapse: preserve;&quot; data-src-align=&quot;0:11&quot; class=&quot;aNeGP0gI0B9AV8JaHPyH&quot;&gt;create_assosiation&lt;/span&gt;" style="shape=loopLimit;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+        <mxCell id="UllfKumYEmRsQ7qDKzCB-39" value="&lt;span style=&quot;white-space-collapse: preserve;&quot; data-src-align=&quot;0:11&quot; class=&quot;aNeGP0gI0B9AV8JaHPyH&quot;&gt;create_&lt;/span&gt;&lt;span style=&quot;text-align: left; text-wrap-mode: nowrap;&quot;&gt;associations&lt;/span&gt;" style="shape=loopLimit;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="-1200" y="160" width="140" height="20" as="geometry" />
         </mxCell>
         <mxCell id="UllfKumYEmRsQ7qDKzCB-51" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="UllfKumYEmRsQ7qDKzCB-40" target="UllfKumYEmRsQ7qDKzCB-46" edge="1">
@@ -586,31 +586,31 @@
           <mxGeometry x="-1450" y="250" width="120" height="30" as="geometry" />
         </mxCell>
         <mxCell id="UllfKumYEmRsQ7qDKzCB-45" value="Слово {word} теперь в вашем словарном запасе.&lt;div&gt;Это Ваше {&lt;span style=&quot;background-color: transparent;&quot;&gt;word_order&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;}&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;слово по счету&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;spacingLeft=0;align=left;fillColor=#dae8fc;strokeColor=#6c8ebf;spacing=10;" parent="1" vertex="1">
-          <mxGeometry x="-1305" y="380" width="270" height="70" as="geometry" />
+          <mxGeometry x="-1300" y="380" width="270" height="70" as="geometry" />
         </mxCell>
         <mxCell id="UllfKumYEmRsQ7qDKzCB-46" value="&lt;span style=&quot;white-space-collapse: preserve;&quot; data-src-align=&quot;0:11&quot; class=&quot;aNeGP0gI0B9AV8JaHPyH&quot;&gt;end_add_word&lt;/span&gt;" style="shape=loopLimit;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="-1185" y="360" width="130" height="20" as="geometry" />
+          <mxGeometry x="-1180" y="360" width="130" height="20" as="geometry" />
         </mxCell>
         <mxCell id="UllfKumYEmRsQ7qDKzCB-48" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="UllfKumYEmRsQ7qDKzCB-49" target="UllfKumYEmRsQ7qDKzCB-50" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="UllfKumYEmRsQ7qDKzCB-49" value="На главную" style="rounded=1;whiteSpace=wrap;html=1;spacingLeft=0;align=center;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" parent="1" vertex="1">
-          <mxGeometry x="-1305" y="460" width="120" height="30" as="geometry" />
+          <mxGeometry x="-1300" y="460" width="120" height="30" as="geometry" />
         </mxCell>
         <mxCell id="UllfKumYEmRsQ7qDKzCB-50" value="home" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" parent="1" vertex="1">
-          <mxGeometry x="-1445" y="460" width="120" height="30" as="geometry" />
+          <mxGeometry x="-1440" y="460" width="120" height="30" as="geometry" />
         </mxCell>
         <mxCell id="UllfKumYEmRsQ7qDKzCB-55" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="UllfKumYEmRsQ7qDKzCB-56" target="UllfKumYEmRsQ7qDKzCB-57" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="UllfKumYEmRsQ7qDKzCB-56" value="На главную" style="rounded=1;whiteSpace=wrap;html=1;spacingLeft=0;align=center;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" parent="1" vertex="1">
-          <mxGeometry x="-760" y="30" width="120" height="30" as="geometry" />
+          <mxGeometry x="-760" y="30" width="110" height="30" as="geometry" />
         </mxCell>
         <mxCell id="UllfKumYEmRsQ7qDKzCB-57" value="home" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" parent="1" vertex="1">
-          <mxGeometry x="-900" y="35" width="120" height="20" as="geometry" />
+          <mxGeometry x="-900" y="40" width="120" height="20" as="geometry" />
         </mxCell>
         <mxCell id="UllfKumYEmRsQ7qDKzCB-58" value="&lt;span style=&quot;white-space-collapse: preserve;&quot; data-src-align=&quot;0:11&quot; class=&quot;aNeGP0gI0B9AV8JaHPyH&quot;&gt;add_word&lt;/span&gt;" style="shape=loopLimit;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;" parent="1" vertex="1">
-          <mxGeometry x="460" y="-625" width="90" height="20" as="geometry" />
+          <mxGeometry x="460" y="-620" width="90" height="20" as="geometry" />
         </mxCell>
         <mxCell id="UllfKumYEmRsQ7qDKzCB-69" value="Назад" style="rounded=1;whiteSpace=wrap;html=1;spacingLeft=0;align=center;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" parent="1" vertex="1">
           <mxGeometry x="310" y="-150" width="140" height="30" as="geometry" />
@@ -653,7 +653,7 @@
           <mxGeometry x="-120" y="220" width="270" height="30" as="geometry" />
         </mxCell>
         <mxCell id="UllfKumYEmRsQ7qDKzCB-121" value="word_card" style="shape=loopLimit;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="-35" y="300" width="100" height="30" as="geometry" />
+          <mxGeometry x="-30" y="300" width="100" height="30" as="geometry" />
         </mxCell>
         <mxCell id="UllfKumYEmRsQ7qDKzCB-122" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="UllfKumYEmRsQ7qDKzCB-120" target="UllfKumYEmRsQ7qDKzCB-121" edge="1">
           <mxGeometry relative="1" as="geometry" />
@@ -692,7 +692,7 @@
           <mxGeometry x="-500" y="-1030" width="30" height="30" as="geometry" />
         </mxCell>
         <mxCell id="2zPlSOns2G0QZxdk9Emy-2" value="&lt;b&gt;on_start&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
-          <mxGeometry x="-525" y="-1060" width="80" height="30" as="geometry" />
+          <mxGeometry x="-520" y="-1060" width="80" height="30" as="geometry" />
         </mxCell>
         <mxCell id="z0QzKpgsDdJ7ftcXSuyK-1" value="collection" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" parent="1" vertex="1">
           <mxGeometry x="-10" y="-200" width="120" height="30" as="geometry" />
@@ -703,7 +703,7 @@
         <mxCell id="i0saVN-rpUXLwmhEmvc2-1" value="collection" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" parent="1" vertex="1">
           <mxGeometry x="-1170" y="40" width="120" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="jsg8sQFSwPBngbFDtlzz-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="jsg8sQFSwPBngbFDtlzz-1" target="UllfKumYEmRsQ7qDKzCB-39">
+        <mxCell id="jsg8sQFSwPBngbFDtlzz-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="jsg8sQFSwPBngbFDtlzz-1" target="UllfKumYEmRsQ7qDKzCB-39" edge="1">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
               <mxPoint x="-1250" y="110" />
@@ -711,14 +711,23 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="jsg8sQFSwPBngbFDtlzz-1" value="Выбрать по умолч." style="rounded=1;whiteSpace=wrap;html=1;spacingLeft=0;align=center;" vertex="1" parent="1">
+        <mxCell id="jsg8sQFSwPBngbFDtlzz-1" value="Выбрать по умолч." style="rounded=1;whiteSpace=wrap;html=1;spacingLeft=0;align=center;" parent="1" vertex="1">
           <mxGeometry x="-1310" y="-40" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="KT3nFhKVsJen2bCvnfBg-1" value="Ввести еще" style="rounded=1;whiteSpace=wrap;html=1;spacingLeft=0;align=center;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="-640" y="30" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="KT3nFhKVsJen2bCvnfBg-2" value="new_word" style="shape=loopLimit;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-640" y="80" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="KT3nFhKVsJen2bCvnfBg-3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" source="KT3nFhKVsJen2bCvnfBg-1" target="KT3nFhKVsJen2bCvnfBg-2" parent="1">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
   <diagram id="0ZiG2H5QeEQgoKnUsASO" name="collection">
-    <mxGraphModel dx="2914" dy="1736" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="3814" dy="2140" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />

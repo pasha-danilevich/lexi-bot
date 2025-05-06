@@ -2,6 +2,7 @@ from aiogram_dialog import Dialog, Window
 from aiogram_dialog.widgets.kbd import Row, Start
 from aiogram_dialog.widgets.text import Const, Format
 
+from ..add_word.state import AddWordSG
 from ..all_words.state import AllWordSG
 from . import event_handler, getters
 from .state import HomeSG
@@ -15,7 +16,9 @@ dialog = Dialog(
             Start(Const("Статистика"), state=..., id='statistic'),
         ),
         Start(Const("Повторять"), state=..., id='training'),
-        Start(Const("Добавить новое слово"), state=..., id='add_new_word'),
+        Start(
+            Const("Добавить новое слово"), state=AddWordSG.add_word, id='add_new_word'
+        ),
         getter=getters.get_msg,
         state=HomeSG.home,
     ),

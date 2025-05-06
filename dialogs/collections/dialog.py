@@ -1,7 +1,9 @@
 from aiogram_dialog import Dialog, Window
 from aiogram_dialog.widgets.input import TextInput
-from aiogram_dialog.widgets.kbd import Button, Group, Next, Row, Select, SwitchTo
-from aiogram_dialog.widgets.text import Const, Format
+from aiogram_dialog.widgets.kbd import Button, Group, Next, Row, SwitchTo
+from aiogram_dialog.widgets.text import Const
+
+from widgets.buttons import DynamicButtons
 
 from ..common import buttons
 from . import event_handler, getters
@@ -11,11 +13,7 @@ dialog = Dialog(
     Window(
         Const("Коллекции:"),
         Group(
-            Select(
-                Format("{item[0]}"),
-                id="collection",
-                item_id_getter=lambda x: x[1],  # ID из кортежа Button(text, id)
-                items="buttons",
+            DynamicButtons(
                 on_click=event_handler.on_collection_selected,
             ),
             width=2,
