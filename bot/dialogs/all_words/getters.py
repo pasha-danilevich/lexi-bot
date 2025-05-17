@@ -1,6 +1,6 @@
 from aiogram_dialog.api.entities.context import DataDict
 
-from dialogs.all_words.interface import DialogManager
+from bot.dialogs.all_words.interface import DialogManager
 
 
 async def get_msg(**kwargs) -> DataDict:

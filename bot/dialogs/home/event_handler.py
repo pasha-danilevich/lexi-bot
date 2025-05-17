@@ -1,5 +1,5 @@
-from dialogs.home.dto import HomeDTO
-from dialogs.home.interface import DialogManager
+from bot.dialogs.home.dto import HomeDTO
+from bot.dialogs.home.interface import DialogManager
 from services.statistic.service import StatisticService
 from services.user.schemas import User
 

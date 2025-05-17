@@ -2,9 +2,9 @@ from aiogram.types import Message
 from aiogram_dialog import Data
 from aiogram_dialog.widgets.input import ManagedTextInput
 
-from dialogs.all_words.dto import AllWordDTO
-from dialogs.all_words.interface import DialogManager
-from dialogs.collections.state import CollectionSG
+from bot.dialogs.all_words.dto import AllWordDTO
+from bot.dialogs.all_words.interface import DialogManager
+from bot.dialogs.collections.state import CollectionSG
 from services.user.schemas import User
 from services.word.service import WordService
 

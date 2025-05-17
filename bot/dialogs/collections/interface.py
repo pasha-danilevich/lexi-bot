@@ -1,5 +1,5 @@
-from dialog_manager.manager import CustomDialogManagerImpl
-from dialogs.collections.dto import CollectionDTO
+from bot.dialog_manager.manager import CustomDialogManagerImpl
+from bot.dialogs.collections.dto import CollectionDTO
 from services.collection.service import CollectionService
 
 

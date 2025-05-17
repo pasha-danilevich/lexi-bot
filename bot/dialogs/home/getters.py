@@ -1,4 +1,4 @@
-from dialogs.home.interface import DialogManager
+from bot.dialogs.home.interface import DialogManager
 
 
 async def get_msg(**kwargs) -> dict[str, int]:

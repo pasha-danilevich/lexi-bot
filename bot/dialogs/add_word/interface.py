@@ -1,5 +1,5 @@
-from dialog_manager.manager import CustomDialogManagerImpl
-from dialogs.add_word.dto import AddWordDTO
+from bot.dialog_manager.manager import CustomDialogManagerImpl
+from bot.dialogs.add_word.dto import AddWordDTO
 from services.word.service import WordService
 
 

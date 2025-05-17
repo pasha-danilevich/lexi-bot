@@ -3,8 +3,8 @@ from aiogram.filters import Command
 from aiogram.types import Message
 from aiogram_dialog import DialogManager
 
-from dialogs.add_word.state import AddWordSG
-from dialogs.home.state import HomeSG
+from bot.dialogs.add_word.state import AddWordSG
+from bot.dialogs.home.state import HomeSG
 
 router = Router()
 

@@ -3,7 +3,7 @@ from aiogram_dialog.widgets.input import TextInput
 from aiogram_dialog.widgets.kbd import Button, Group, Next, Row, SwitchTo
 from aiogram_dialog.widgets.text import Const
 
-from widgets.buttons import DynamicButtons
+from bot.widgets.buttons import DynamicButtons
 
 from ..common import buttons
 from . import event_handler, getters

@@ -1,5 +1,5 @@
-from dialog_manager.manager import CustomDialogManagerImpl
-from dialogs.home.dto import HomeDTO
+from bot.dialog_manager.manager import CustomDialogManagerImpl
+from bot.dialogs.home.dto import HomeDTO
 from services.statistic.interface import IStatistic
 
 

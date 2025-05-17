@@ -1,5 +1,5 @@
-from dialogs.collections.interface import DialogManager
-from widgets.buttons import ButtonsGetter
+from bot.dialogs.collections.interface import DialogManager
+from bot.widgets.buttons import ButtonsGetter
 
 
 async def get_buttons(**kwargs) -> ButtonsGetter:

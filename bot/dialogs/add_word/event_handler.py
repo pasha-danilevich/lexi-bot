@@ -1,8 +1,8 @@
 from aiogram.types import Message
 from aiogram_dialog.widgets.input import ManagedTextInput
 
-from dialogs.add_word.dto import AddWordDTO
-from dialogs.add_word.state import AddWordSG
+from bot.dialogs.add_word.dto import AddWordDTO
+from bot.dialogs.add_word.state import AddWordSG
 from services.user.schemas import User
 from services.word.schemas import UserWordCard
 from services.word.service import WordService

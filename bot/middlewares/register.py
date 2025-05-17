@@ -1,6 +1,6 @@
 from aiogram import Dispatcher
 
-from middlewares.callback_logger import CallbackLoggerMiddleware
+from bot.middlewares.callback_logger import CallbackLoggerMiddleware
 
 
 def register_middlewares(dp: Dispatcher):
