@@ -2,8 +2,8 @@ from aiogram.fsm.state import State, StatesGroup
 
 
 class AddWordSG(StatesGroup):
-    search_word = State()
     add_word = State()
+    search_word = State()
     word_card = State()
     select_collection = State()
     create_associations = State()

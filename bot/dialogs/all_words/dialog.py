@@ -36,7 +36,8 @@ dialog = Dialog(
         Format("У вас нет слова {word}."),
         Button(
             Const("Найти в поиске"),
-            id="new_word",
+            id="no_word",
+            on_click=event_handler.on_found_word_in_search,
             #     TODO: Start(AddWordSG)
         ),
         Row(
