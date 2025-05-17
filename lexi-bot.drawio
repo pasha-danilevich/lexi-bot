@@ -1,6 +1,6 @@
 <mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/27.0.5 Chrome/134.0.6998.205 Electron/35.3.0 Safari/537.36" version="27.0.5" pages="8">
   <diagram name="Правила" id="h5sB5wNbX_iy1kHNalqW">
-    <mxGraphModel dx="2339" dy="1849" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="2987" dy="2140" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -301,7 +301,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="JQrtzYpsoV1WHdFjCpuo" name="add_word">
-    <mxGraphModel dx="4174" dy="2302" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="none" math="0" shadow="0">
+    <mxGraphModel dx="4678" dy="2529" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="none" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -413,7 +413,7 @@
           <mxGeometry x="200" y="-740" width="220" height="60" as="geometry" />
         </mxCell>
         <object label="word_card" id="HQ_Bx1bDzPAB6yZkEubi-2">
-          <mxCell style="shape=loopLimit;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
+          <mxCell style="shape=loopLimit;whiteSpace=wrap;html=1;" parent="1" vertex="1">
             <mxGeometry x="-650" y="-190" width="100" height="30" as="geometry" />
           </mxCell>
         </object>
@@ -475,7 +475,7 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <object label="user_word_card" id="UllfKumYEmRsQ7qDKzCB-30">
-          <mxCell style="shape=loopLimit;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
+          <mxCell style="shape=loopLimit;whiteSpace=wrap;html=1;" parent="1" vertex="1">
             <mxGeometry x="-240" y="-460" width="150" height="20" as="geometry" />
           </mxCell>
         </object>
@@ -501,13 +501,13 @@
             <mxPoint x="-30" y="-185" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="UllfKumYEmRsQ7qDKzCB-36" value="Сменить коллекцию" style="rounded=1;whiteSpace=wrap;html=1;spacingLeft=0;align=center;" parent="1" vertex="1">
+        <mxCell id="UllfKumYEmRsQ7qDKzCB-36" value="Сменить коллекцию" style="rounded=1;whiteSpace=wrap;html=1;spacingLeft=0;align=center;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
           <mxGeometry x="-290" y="-200" width="220" height="30" as="geometry" />
         </mxCell>
         <mxCell id="UllfKumYEmRsQ7qDKzCB-77" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="UllfKumYEmRsQ7qDKzCB-37" target="UllfKumYEmRsQ7qDKzCB-72" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="UllfKumYEmRsQ7qDKzCB-37" value="Сменить ассоциацию&amp;nbsp;" style="rounded=1;whiteSpace=wrap;html=1;spacingLeft=0;align=center;" parent="1" vertex="1">
+        <mxCell id="UllfKumYEmRsQ7qDKzCB-37" value="Сменить ассоциацию&amp;nbsp;" style="rounded=1;whiteSpace=wrap;html=1;spacingLeft=0;align=center;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
           <mxGeometry x="-290" y="-240" width="220" height="30" as="geometry" />
         </mxCell>
         <mxCell id="UllfKumYEmRsQ7qDKzCB-38" value="Придумайте ассоциацию:" style="rounded=1;whiteSpace=wrap;html=1;spacingLeft=0;align=left;spacing=10;" parent="1" vertex="1">
@@ -563,23 +563,17 @@
         <mxCell id="UllfKumYEmRsQ7qDKzCB-112" value="" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;" parent="1" vertex="1">
           <mxGeometry x="200" y="-190" width="230" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="UllfKumYEmRsQ7qDKzCB-119" value="&lt;span style=&quot;white-space-collapse: preserve;&quot;&gt;delete_word&lt;/span&gt;" style="shape=loopLimit;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+        <mxCell id="UllfKumYEmRsQ7qDKzCB-119" value="&lt;span style=&quot;white-space-collapse: preserve;&quot;&gt;delete_word&lt;/span&gt;" style="shape=loopLimit;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
           <mxGeometry x="-30" y="40" width="160" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="UllfKumYEmRsQ7qDKzCB-120" value="Нет" style="rounded=1;whiteSpace=wrap;html=1;spacingLeft=0;align=center;" parent="1" vertex="1">
-          <mxGeometry x="-120" y="220" width="270" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="UllfKumYEmRsQ7qDKzCB-121" value="word_card" style="shape=loopLimit;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="-35" y="300" width="100" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="UllfKumYEmRsQ7qDKzCB-122" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="UllfKumYEmRsQ7qDKzCB-120" target="UllfKumYEmRsQ7qDKzCB-121" edge="1">
-          <mxGeometry relative="1" as="geometry" />
+        <mxCell id="UllfKumYEmRsQ7qDKzCB-120" value="Нет" style="rounded=1;whiteSpace=wrap;html=1;spacingLeft=0;align=center;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" parent="1" vertex="1">
+          <mxGeometry x="10" y="180" width="140" height="30" as="geometry" />
         </mxCell>
         <mxCell id="UllfKumYEmRsQ7qDKzCB-123" value="Вы уверены, что хотите удалить {word} {lvl} {assosiation} навсегда" style="rounded=1;whiteSpace=wrap;html=1;spacingLeft=0;align=left;fillColor=#dae8fc;strokeColor=#6c8ebf;spacing=10;" parent="1" vertex="1">
           <mxGeometry x="-120" y="60" width="270" height="70" as="geometry" />
         </mxCell>
         <mxCell id="UllfKumYEmRsQ7qDKzCB-125" value="На главную" style="rounded=1;whiteSpace=wrap;html=1;spacingLeft=0;align=center;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" parent="1" vertex="1">
-          <mxGeometry x="-120" y="140" width="120" height="30" as="geometry" />
+          <mxGeometry x="-120" y="180" width="120" height="30" as="geometry" />
         </mxCell>
         <mxCell id="UllfKumYEmRsQ7qDKzCB-133" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="UllfKumYEmRsQ7qDKzCB-128" target="UllfKumYEmRsQ7qDKzCB-132" edge="1">
           <mxGeometry relative="1" as="geometry" />
@@ -591,12 +585,12 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="UllfKumYEmRsQ7qDKzCB-129" value="Отложить слово на 1 месяц" style="rounded=1;whiteSpace=wrap;html=1;spacingLeft=0;align=center;" parent="1" vertex="1">
-          <mxGeometry x="-120" y="180" width="270" height="30" as="geometry" />
+          <mxGeometry x="-120" y="140" width="120" height="30" as="geometry" />
         </mxCell>
         <mxCell id="UllfKumYEmRsQ7qDKzCB-130" value="word_card" style="shape=loopLimit;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="190" y="180" width="100" height="30" as="geometry" />
+          <mxGeometry x="-260" y="140" width="100" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="UllfKumYEmRsQ7qDKzCB-132" value="new_word" style="shape=loopLimit;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+        <mxCell id="UllfKumYEmRsQ7qDKzCB-132" value="home" style="shape=loopLimit;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="190" y="140" width="100" height="30" as="geometry" />
         </mxCell>
         <mxCell id="2zPlSOns2G0QZxdk9Emy-1" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">

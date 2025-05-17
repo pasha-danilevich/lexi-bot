@@ -12,7 +12,7 @@ from .interface import DialogManager
 
 async def on_start(_, manager: DialogManager) -> None:
     start_data = manager.start_data
-    word = None
+    word: None | str = None
 
     if start_data:
         word = manager.start_data.get('word', None)
@@ -22,7 +22,10 @@ async def on_start(_, manager: DialogManager) -> None:
     await manager.set_dto(AddWordDTO())
 
     if word:  # если слово пришло из вне
-        word_id = 123  # TODO: тут сервис ищет слово в mongo, либо создает новое слово
+        # TODO: тут сервис ищет слово в mongo, либо создает новое слово
+        word_id = (
+            999 if word == 'my_word' else 123
+        )  # если слово "my_word", то это слово, которое есть у пользователя
         await switch_window_base_on_user_word(word_id, manager)
 
 
@@ -42,5 +45,8 @@ async def on_input_search_word(
     _: Message, __: ManagedTextInput, manager: DialogManager, text: str
 ):
     manager.dto.search_word = text
-    word_id = 123  # TODO: тут сервис ищет слово в mongo, либо создает новое слово
+    # TODO: тут сервис ищет слово в mongo, либо создает новое слово
+    word_id = (
+        999 if text == 'my_word' else 123
+    )  # если слово "my_word", то это слово, которое есть у пользователя
     await switch_window_base_on_user_word(word_id, manager)

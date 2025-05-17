@@ -66,5 +66,19 @@ dialog = Dialog(
         ),
         state=AddWordSG.select_collection,
     ),
+    Window(
+        Format("Вы уверены, что хотите удалить {word_card} {lvl} навсегда"),
+        SwitchTo(
+            Const("Выбрать по умолчанию"),
+            id="select_default",
+            state=AddWordSG.select_collection,
+        ),
+        Row(
+            buttons.HOME,
+            Back(Const('Нет')),
+        ),
+        getter=getters.get_msg,
+        state=AddWordSG.delete_word,
+    ),
     on_start=event_handler.on_start,
 )

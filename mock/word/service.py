@@ -38,9 +38,8 @@ class WordMockService(IWordService, UserScoped):
     async def get_word_card(self, word_id: int) -> WordCard | UserWordCard:
         """WordCard - если слова нет у пользователя. В остальных случаях - UserWordCard"""
         _ = self.user.id
-
-        if True:  # будто это слово есть у пользователя
-            user_word_card = UserWordCard(
+        if word_id == 999:  # будто это слово есть у пользователя
+            word_card = UserWordCard(
                 word_id=faker.random_int(),
                 text=faker.word(),
                 translation=faker_ru.word(),
@@ -57,7 +56,22 @@ class WordMockService(IWordService, UserScoped):
                 review_level=3,
                 next_review=1746195952,
             )
-            return user_word_card
+        else:
+            word_card = WordCard(
+                word_id=faker.random_int(),
+                text=faker.word(),
+                translation=faker_ru.word(),
+                usage_count=faker.random_int(max=30),
+                part_of_speech='noun',
+                transcription='*trs*',
+                synonyms=[word.text for word in WORDS[:10]],
+                antonyms=[word.text for word in WORDS[:10]],
+                audio='https:/НАМЕРЕННО БИТАЯ ССЫЛКА.ogg',
+                image=None,
+                usage_example=faker.catch_phrase(),
+            )
+
+        return word_card
 
     async def get_all_words(
         self, collection_id: int, limit: int, offset: int

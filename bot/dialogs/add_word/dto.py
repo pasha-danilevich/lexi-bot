@@ -10,6 +10,6 @@ class AddWordDTO(BaseModel):
     association: Optional[str] = None
     collection_id: Optional[int] = None
     # new word
-    word_card: Optional[WordCard] = None
+    word_card: Optional[WordCard | UserWordCard] = None
     # user has this word
     user_word_card: Optional[UserWordCard] = None

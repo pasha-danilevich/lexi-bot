@@ -7,7 +7,7 @@ from aiogram_dialog.context.media_storage import MediaIdStorage
 from aiogram_dialog.manager.message_manager import MessageManager
 from loguru import logger
 
-from bot.dialog_manager import ManagerFactory
+from bot.dialog_manager.factory import ManagerFactory
 from bot.dialogs import dialogs_router
 from bot.handlers import main_router
 from bot.middlewares.register import register_middlewares
