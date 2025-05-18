@@ -1,6 +1,8 @@
 from pprint import pprint
 
+from loguru import logger
 from tortoise import Tortoise
+from tortoise.exceptions import DBConnectionError
 
 from config import config
 
@@ -29,13 +31,39 @@ TORTOISE_ORM = {
 async def show_models():
     await Tortoise.init(config=TORTOISE_ORM)
     models = Tortoise.apps.get("models")  # Получаем все модели
-    print("Зарегистрированные модели:")
+    logger.success("Зарегистрированные модели:")
     pprint(list(models.keys()))
 
 
+async def ping_db():
+    """
+    Проверяет подключение к базе данных через Tortoise ORM
+    """
+    try:
+        conn = Tortoise.get_connection("default")
+        await conn.execute_query("SELECT 1")
+        logger.success("✅ Успешное подключение к PostgreSQL через Tortoise ORM!")
+        return True
+    except DBConnectionError as e:
+        logger.error(f"❌ Ошибка подключения к базе данных: {e}")
+        return False
+    except Exception as e:
+        logger.error(f"❌ Неожиданная ошибка: {e}")
+        return False
+
+
 async def init_db():
-    await Tortoise.init(config=TORTOISE_ORM)
-    await Tortoise.generate_schemas()
+    """
+    Инициализация БД с проверкой подключения
+    """
+
+    try:
+        await Tortoise.init(config=TORTOISE_ORM)
+        await ping_db()
+        await Tortoise.generate_schemas()
+    except Exception as e:
+        logger.error(f"❌ Ошибка инициализации Tortoise ORM: {e}")
+        raise
 
 
 if __name__ == '__main__':

@@ -13,11 +13,14 @@ from bot.handlers import main_router
 from bot.middlewares.register import register_middlewares
 from config import config
 from db.database import init_db
+from db.mongo.database import init_mongo
 
 
 # Запуск бота
 async def main():
     await init_db()
+    await init_mongo()
+
     bot = Bot(token=config.BOT_TOKEN)
     storage = MemoryStorage()
     dp = Dispatcher(storage=storage)
@@ -35,7 +38,6 @@ async def main():
         ),
     )
     logger.success('Бот запущен!')
-    await bot.send_message(chat_id=850472798, text='Я запустился /start')
 
     await bot.delete_webhook(drop_pending_updates=True)
     await dp.start_polling(bot)

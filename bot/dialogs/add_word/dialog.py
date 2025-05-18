@@ -1,6 +1,6 @@
 from aiogram_dialog import Dialog, Window
 from aiogram_dialog.widgets.input import TextInput
-from aiogram_dialog.widgets.kbd import Back, Row, SwitchTo
+from aiogram_dialog.widgets.kbd import Back, Button, Row, SwitchTo
 from aiogram_dialog.widgets.media import DynamicMedia
 from aiogram_dialog.widgets.text import Const, Format
 
@@ -20,7 +20,7 @@ word_card_windows = (
         ),
         Row(
             buttons.HOME,
-            Back(Const('Отмена')),
+            SwitchTo(Const('Найти еще'), id="new_search", state=AddWordSG.add_word),
         ),
         state=AddWordSG.word_card,
         getter=getters.get_msg,
@@ -35,7 +35,6 @@ word_card_windows = (
         ),
         Row(
             buttons.HOME,
-            Back(Const('Отмена')),
         ),
         state=AddWordSG.user_word_card,
         getter=getters.get_msg,
@@ -67,15 +66,21 @@ dialog = Dialog(
         state=AddWordSG.select_collection,
     ),
     Window(
-        Format("Вы уверены, что хотите удалить {word_card} {lvl} навсегда"),
-        SwitchTo(
-            Const("Выбрать по умолчанию"),
-            id="select_default",
-            state=AddWordSG.select_collection,
+        Format(
+            'Вы уверены, что хотите удалить "{user_word_card.text} - lvl:'
+            ' {user_word_card.review_level} - association'
+            ' {user_word_card.associations}" навсегда'
+        ),
+        Button(
+            Const("Отложить слово на 1 месяц"),
+            id="delay",
+        ),
+        Button(
+            Const("Да, удалить"),
+            id="delete",
         ),
         Row(
             buttons.HOME,
-            Back(Const('Нет')),
         ),
         getter=getters.get_msg,
         state=AddWordSG.delete_word,

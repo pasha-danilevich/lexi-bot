@@ -42,10 +42,10 @@ async def on_input_search_word(
     manager.dto.search_word = text
     logger.debug(text)
     # TODO: Пытаемся найти слово у пользователя
-    user_word = None  # считаем, что слово не найдено
-    if user_word:
-        pass
-    else:
+
+    if text == 'my_word':  # считаем, что слово найдено
+        await manager.start(AddWordSG.add_word, data={'word': manager.dto.search_word})
+    else:  # считаем, что слово не найдено
         await manager.switch_to(AllWordSG.not_found_word)
 
 

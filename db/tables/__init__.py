@@ -1,5 +1,9 @@
-from .some_table import SomeTable
+from .collection import Collection
+from .user import User
+from .user_word import UserWord
 
 __all__ = [
-    'SomeTable',
+    'User',
+    'Collection',
+    'UserWord',
 ]

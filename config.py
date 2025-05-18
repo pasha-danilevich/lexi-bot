@@ -27,7 +27,12 @@ class Postgres(Base):
     DB_NAME: str = "dbname"
 
 
-class Config(Bot, Postgres):
+class Mongo(Base):
+    MONGO_DB_HOST: str = "localhost"
+    MONGO_DB_PORT: int = 27017
+
+
+class Config(Bot, Postgres, Mongo):
     pass
 
 
