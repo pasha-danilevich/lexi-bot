@@ -3,8 +3,8 @@ from aiogram_dialog.widgets.input import ManagedTextInput
 
 from bot.dialogs.add_word.dto import AddWordDTO
 from bot.dialogs.add_word.state import AddWordSG
-from services.user.schemas import User
-from services.word.schemas import UserWordCard
+from services.user.schemas import UserDTO
+from services.word.schemas import UserWordCardDTO
 from services.word.service import WordService
 
 from .interface import DialogManager
@@ -17,7 +17,7 @@ async def on_start(_, manager: DialogManager) -> None:
     if start_data:
         word = manager.start_data.get('word', None)
 
-    user = User(id=manager.event.from_user.id)
+    user = UserDTO(telegram_id=manager.event.from_user.id)
     await manager.set_service(service=WordService(user))
     await manager.set_dto(AddWordDTO())
 
@@ -33,7 +33,7 @@ async def switch_window_base_on_user_word(word_id: int, manager: DialogManager) 
     """проверяет наличие слова у пользователя и возвращает соответствующее окно (состояние/экран)"""
     word_card = await manager.service.get_word_card(word_id)
 
-    if isinstance(word_card, UserWordCard):
+    if isinstance(word_card, UserWordCardDTO):
         manager.dto.user_word_card = word_card
         await manager.switch_to(AddWordSG.user_word_card)
     else:

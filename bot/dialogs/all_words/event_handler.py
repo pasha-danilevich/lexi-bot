@@ -9,7 +9,7 @@ from bot.dialogs.all_words.dto import AllWordDTO
 from bot.dialogs.all_words.interface import DialogManager
 from bot.dialogs.all_words.state import AllWordSG
 from bot.dialogs.collections.state import CollectionSG
-from services.user.schemas import User
+from services.user.schemas import UserDTO
 from services.word.service import WordService
 
 
@@ -24,7 +24,7 @@ async def process_collection_result(
 ):
     print("We have result from collection_dialog:", result)
 
-    user = User(id=manager.event.from_user.id)
+    user = UserDTO(telegram_id=manager.event.from_user.id)
     await manager.set_service(service=WordService(user))
     words = await manager.service.get_all_words(
         collection_id=result, limit=10, offset=0

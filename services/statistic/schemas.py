@@ -3,7 +3,7 @@ from typing import Dict, List
 
 from pydantic import BaseModel, Field
 
-from services.word.schemas import MistakeWord, Word
+from services.word.schemas import MistakeWord, WordDTO
 
 
 class UserStatsResponse(BaseModel):
@@ -21,7 +21,7 @@ class UserStatsResponse(BaseModel):
     mistakes: List[MistakeWord] = Field(
         ..., max_length=10, description="Топ-10 слов с наибольшим количеством ошибок"
     )
-    recent: List[Word] = Field(
+    recent: List[WordDTO] = Field(
         ..., max_length=5, description="Недавно добавленные слова"
     )
 

@@ -5,12 +5,14 @@ from pydantic import BaseModel, Field
 from services.training.enums import TrainingType
 
 
-class Word(BaseModel):
+class WordDTO(BaseModel):
+    """Слово, которое связанно с пользователем. Находится в Postgres, поэтому данные без справочной информации из Mongo"""
+
     word_id: int = Field(..., description="ID слова в базе")
     text: str = Field(..., min_length=1, description="Текст слова")
 
 
-class WordCard(Word):
+class WordCardDTO(WordDTO):
     translation: str
     usage_count: int
     part_of_speech: Optional[str]
@@ -24,7 +26,7 @@ class WordCard(Word):
     usage_example: Optional[str]
 
 
-class UserWordCard(WordCard):
+class UserWordCardDTO(WordCardDTO):
     collection: str
     associations: str
     review_level: int
@@ -34,7 +36,7 @@ class UserWordCard(WordCard):
 class MistakeWord(BaseModel):
     """Схема для слова с ошибкой."""
 
-    word: Word
+    word: WordDTO
     mistake_count: int = Field(..., ge=1, description="Количество ошибок")
     in_training_type: TrainingType = Field(
         ..., description="Тип упражнения, где была ошибка"

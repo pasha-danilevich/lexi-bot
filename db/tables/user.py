@@ -2,6 +2,7 @@ from tortoise import fields, models
 
 from db.active_manager import ActiveManager
 from db.base_mixin import ActualMixin, TimestampMixin
+from db.tables import Collection
 
 
 class User(models.Model, ActualMixin, TimestampMixin):
@@ -15,6 +16,9 @@ class User(models.Model, ActualMixin, TimestampMixin):
     # Аутентификация
     hashed_password = fields.CharField(max_length=255, null=True)  # Только для сайта
     telegram_id = fields.BigIntField(null=True, unique=True)  # ID в Telegram
+
+    collections: fields.ReverseRelation["Collection"]
+    user_words: fields.ReverseRelation["UserWord"]
 
     class Meta:
         manager = ActiveManager()

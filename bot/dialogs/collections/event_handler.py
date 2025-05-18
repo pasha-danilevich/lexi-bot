@@ -3,7 +3,7 @@ from aiogram_dialog.widgets.input import ManagedTextInput
 from aiogram_dialog.widgets.kbd import Button, Select
 
 from services.collection.service import CollectionService
-from services.user.schemas import User
+from services.user.schemas import UserDTO
 
 from .dto import CollectionDTO
 from .interface import DialogManager
@@ -11,7 +11,7 @@ from .state import CollectionSG
 
 
 async def on_start(_, manager: DialogManager) -> None:
-    user = User(id=manager.event.from_user.id)
+    user = UserDTO(telegram_id=manager.event.from_user.id)
     await manager.set_service(CollectionService(user=user))
     await manager.set_dto(CollectionDTO())
 

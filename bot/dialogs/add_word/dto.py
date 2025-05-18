@@ -2,7 +2,7 @@ from typing import Optional
 
 from pydantic import BaseModel
 
-from services.word.schemas import UserWordCard, WordCard
+from services.word.schemas import UserWordCardDTO, WordCardDTO
 
 
 class AddWordDTO(BaseModel):
@@ -10,6 +10,6 @@ class AddWordDTO(BaseModel):
     association: Optional[str] = None
     collection_id: Optional[int] = None
     # new word
-    word_card: Optional[WordCard | UserWordCard] = None
+    word_card: Optional[WordCardDTO | UserWordCardDTO] = None
     # user has this word
-    user_word_card: Optional[UserWordCard] = None
+    user_word_card: Optional[UserWordCardDTO] = None
